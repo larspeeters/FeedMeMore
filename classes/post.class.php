@@ -52,6 +52,7 @@
 		public function send()
 		{
 			echo "Dit is het onderwerp: " . $this->m_sSubject . "<br> Dit is de gemaakte keuze: " . $this->m_sMention . "<br> Dit is de uitleg: " . $this->m_sText;
+			echo "blablablabla";
 		}
 	}
 

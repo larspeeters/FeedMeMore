@@ -1,27 +1,4 @@
-<?php
-	
-	$feedback = "";
-	if (!empty($_POST))
-	{
-		try
-		{
-			include('classes/post.class.php');
-			$post = new Post();
-			$post->Subject = $_POST['subject'];
-			$post->Mention = $_POST['mention'];
-			$post->Text = $_POST['text'];
-			
-			$post->Send();
-			$feedback = "Dank u voor u medewerking! U verzending word zo snel mogelijk bekeken.";
-		}
-		catch(Exception $e)
-		{
-			$error = $e->getMessage();
-		}
-
-	}
-
-?><!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="nl">
 <head>
 	<meta charset="utf-8">
@@ -61,18 +38,6 @@ include_once "includes/nav.include.php";
                 <input type="submit" value="Laat het ons weten!">      
             </form>
             <br>
-            <div class="feedback">
-				<?php 
-				if(isset($error))
-				{
-					echo $error;
-				}
-				else
-				{
-					echo $feedback;
-				}
-				?>	
-			</div>
         </div>
 	</article>
 </body>

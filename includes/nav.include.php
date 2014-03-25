@@ -9,12 +9,18 @@
 				<li><a href="contact.php">bereik ons</a></li>
 			</ul>
 		</div>
-
+<?php session_start();
+		if(!isset($_SESSION['username'])):?>
 		<div id="login">
+        <form action="" method="POST">
+        <input type="text" size="20" placeholder="Username" name="username" />
+        <input type="password" size="20" placeholder="Password" name="password" />
+        </form>
 			<ul>
 				<li><a href="login">log in</a></li>
                 <br>
 				<li><a href="registreer">registreer</a></li>
 			</ul>
 		</div>
+<?php endif;?>
 	</nav>

@@ -20,7 +20,7 @@ include_once "includes/nav.include.php";
     $n = $p->show();
     if($n){
       foreach($n as $list){
-        echo "<div id='list'><h2>".$list['subject']. "</h2><h3>" .$list['mention']. "</h3><p>" .$list['text']."</p></div>";
+        echo "<div id='list'><h2>".$list['subject']. "</h2><h3>" .$list['mention']. "</h3><p>" .$list['text']."</p></div><hr>";
       }
       if (!empty($_POST['remove']))
       {

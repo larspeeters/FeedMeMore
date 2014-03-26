@@ -19,8 +19,6 @@
 	        </form>
 
 	        <form action="" method="post" name="registreer">
-		        <input type="text" size="20" placeholder="Username" name="username" />
-		        <input type="password" size="20" placeholder="Password" name="password" />
 		        <input type="button" name="registerSend" value="registreer"></input>
 	        </form>
 		</div>

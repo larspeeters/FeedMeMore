@@ -16,7 +16,6 @@ include_once "includes/nav.include.php";
    
 	<article>
 		<?php 
-		echo "test";
     $p = new Post();
     $n = $p->show();
     if($n){

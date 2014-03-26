@@ -55,6 +55,10 @@ nav a:hover{
 	width: 150px;
 	font-size: 12px;
 }
+
+#login input[type="button"]{
+	font-size: 12px;
+}
 /************************ NAVIGATION ************************/
 
 /************************ CONTENT ************************/

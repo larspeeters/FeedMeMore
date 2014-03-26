@@ -49,10 +49,18 @@
 			}
 		}
 
-		public function send()
+		public function Save()
 		{
-			echo "Dit is het onderwerp: " . $this->m_sSubject . "<br> Dit is de gemaakte keuze: " . $this->m_sMention . "<br> Dit is de uitleg: " . $this->m_sText;
-			echo "blablablabla";
+			$mysql_host = "mysql1.000webhost.com";	
+			$mysql_user = "a8154344_php";
+			$mysql_password = "Imd123)";
+			$mysql_database = "a8154344_imd";
+
+			$conn  = new mysqli($mysql_host, $mysql_user, $mysql_password, $mysql_database);
+			$sql = "insert into tblPost (subject, mention, text) values ('".$conn->real_escape_string($this->m_sSubject)."', 
+																	  '".$conn->real_escape_string($this->m_sMention)."', 
+																	  '".$conn->real_escape_string($this->m_sText)."');";
+			$conn->query($sql);
 		}
 	}
 

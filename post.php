@@ -11,7 +11,7 @@
 			$post->Mention = $_POST['mention'];
 			$post->Text = $_POST['text'];
 			
-			$post->Send();
+			$post->Save();
 			$feedback = "Dank u voor u medewerking! U verzending word zo snel mogelijk bekeken.";
 		}
 		catch(Exception $e)

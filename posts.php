@@ -1,4 +1,6 @@
-<!DOCTYPE HTML>
+<?php
+	include('classes/post.class.php');
+?><!DOCTYPE HTML>
 <html lang="nl">
 <head>
 	<meta charset="utf-8">
@@ -13,6 +15,22 @@ include_once "includes/nav.include.php";
 ?>
    
 	<article>
+		<?php 
+
+    $p = new Post();
+    $n = $p->show();
+    if($n){
+      foreach($n as $list){
+        echo "<div id='list'>".$list['subject']. " " .$list['mention']. " " .$list['text']." </div>";
+      }
+      if (!empty($_POST['remove']))
+      {
+        $r = new Post();
+        $r->remove();
+      }
+    }
+
+?>
 	
 	</article>
 </body>

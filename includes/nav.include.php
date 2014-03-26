@@ -18,7 +18,7 @@
 		        <input type="button" name="loginSend" value="login"></input>
 	        </form>
 
-	        <form action="" method="post" name="registreer">
+	        <form action="" method="post" name="registreer"> 
 		        <input type="button" name="registerSend" value="registreer"></input>
 	        </form>
 		</div>

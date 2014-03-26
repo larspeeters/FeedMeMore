@@ -50,6 +50,11 @@ nav a{
 nav a:hover{
 	color: #487B78;
 }
+
+#login input[type="text"], #login input[type="password"] {
+	width: 150px;
+	font-size: 12px;
+}
 /************************ NAVIGATION ************************/
 
 /************************ CONTENT ************************/

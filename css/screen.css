@@ -52,7 +52,7 @@ nav a:hover{
 }
 
 #login input[type="text"], #login input[type="password"] {
-	width: 150px;
+	width: 100px;
 	font-size: 12px;
 	margin-bottom: 5px;
 }

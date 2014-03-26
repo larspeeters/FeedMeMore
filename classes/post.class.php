@@ -4,7 +4,7 @@
 		private $m_sSubject;
 		private $m_sMention;
 		private $m_sText;
-		
+		// gewijzigd
 		public function __set($p_sProperty, $p_vValue)
 		{
 			switch ($p_sProperty) 

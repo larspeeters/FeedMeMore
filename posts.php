@@ -99,10 +99,8 @@ include_once "includes/nav.include.php";
     $n = $p->show();
     if($n){
       foreach($n as $list){
-        echo "<div id='list'><h2>".$list['subject']. "</h2><h3>" .$list['mention']. "</h3><p>" .$list['text']."</p></div><hr>";
-        echo "<h1> Rate the following movies! </h1>
-              <div class='movie_choice'>
-              Rate: Raiders of the Lost Ark
+        echo "<div id='list'><h2>".$list['subject']. "</h2><h3>" .$list['mention']. "</h3><p>" .$list['text']."</p></div>";
+        echo "<div class='movie_choice'>
               <div id='r1' class='rate_widget'>
               <div class='star_1 ratings_stars'></div>
               <div class='star_2 ratings_stars'></div>
@@ -111,7 +109,7 @@ include_once "includes/nav.include.php";
               <div class='star_5 ratings_stars'></div>
               <div class='total_votes'>vote data</div>
               </div>
-              </div>";
+              </div><hr>";
       }
       if (!empty($_POST['remove']))
       {

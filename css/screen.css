@@ -9,13 +9,13 @@ nav{
 	height: 90px;
 	background-color: #EC4B2E;
 	margin-bottom: 50px;
-	font-size: 16px;
+	font-size: 18px;
 }
 
 
 nav li{
 	display: inline;
-	padding: 0 20px;
+	
 }
 
 nav #logo{
@@ -30,11 +30,8 @@ nav #main{
 	/* overflow: auto; */
 	/* margin-top: 13px; */
 	margin: 0 auto;
-<<<<<<< HEAD
-	padding-top: 30px;
-=======
+	
 	padding-top: 35px;
->>>>>>> origin/Cedric
 }
 
 nav #login{
@@ -49,10 +46,17 @@ nav #login{
 nav a{
 	text-decoration: none;
 	color: white;
+	padding:20px;
+	padding-top: 35px;
+	padding-bottom: 33px;
+	
 }
 
 nav a:hover{
-	color: #487B78;
+	text-decoration: none; 
+	
+	background-color: #D3361C;
+	
 }
 
 #login input[type="text"], #login input[type="password"] {

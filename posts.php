@@ -101,7 +101,7 @@ include_once "includes/nav.include.php";
       foreach($n as $list){
         echo "<div id='list'><h2>".$list['subject']. "</h2><h3>" .$list['mention']. "</h3><p>" .$list['text']."</p></div>";
         echo "<div class='movie_choice'>
-              <div id='r1' class='rate_widget'>
+              <div id='".$list['id']."' class='rate_widget'>
               <div class='star_1 ratings_stars'></div>
               <div class='star_2 ratings_stars'></div>
               <div class='star_3 ratings_stars'></div>

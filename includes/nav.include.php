@@ -1,6 +1,7 @@
 	<nav>
 		<div id="logo">
                 <img src="images/logowit.png" width="150" height="70" alt="logo">
+                
         </div>
 		<div id="main">
 			<ul>

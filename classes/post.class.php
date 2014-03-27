@@ -62,6 +62,26 @@
 																	  '".$conn->real_escape_string($this->m_sText)."');";
 			$conn->query($sql);
 		}
+
+		public function show()
+			{
+				$mysql_host = "mysql1.000webhost.com";	
+				$mysql_user = "a8154344_php";
+				$mysql_password = "Imd123)";
+				$mysql_database = "a8154344_imd";
+
+				$conn = new mysqli($mysql_host, $mysql_user, $mysql_password, $mysql_database);
+				$sql = "select * from tblPost";
+				
+				$result = mysqli_query($conn,$sql);
+				$array = array();
+				
+				while($row = mysqli_fetch_array($result)){
+					array_push($array, $row);
+					}
+				
+				return $array;
+			}
 	}
 
 ?>

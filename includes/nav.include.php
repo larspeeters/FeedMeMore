@@ -1,7 +1,13 @@
 	<nav>
+<<<<<<< HEAD
     <div id="logo">
                 <img src="images/logowit.png" width="150" height="70" alt="logo">
             </div>
+=======
+		<div id="logo">
+                <img src="images/logowit.png" width="150" height="70" alt="logo">
+        </div>
+>>>>>>> origin/Cedric
 		<div id="main">
 			<ul>
 				<li><a href="index.php">home</a></li>
@@ -15,15 +21,15 @@
 <?php session_start();
 		if(!isset($_SESSION['username'])):?>
 		<div id="login">
-        <form action="" method="POST">
-        <input type="text" size="20" placeholder="Username" name="username" />
-        <input type="password" size="20" placeholder="Password" name="password" />
-        </form>
-			<ul>
-				<li><a href="login">log in</a></li>
-                <br>
-				<li><a href="registreer">registreer</a></li>
-			</ul>
+	        <form action="" method="post" name="login">
+		        <input type="text" size="20" placeholder="Username" name="username" />
+		        <input type="password" size="20" placeholder="Password" name="password" />
+		        <input type="button" name="loginSend" value="login"></input>
+	        </form>
+
+	        <form action="" method="post" name="registreer"> 
+		        <input type="button" name="registerSend" value="registreer"></input>
+	        </form>
 		</div>
 <?php endif;?>
 	</nav>

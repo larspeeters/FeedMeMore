@@ -97,7 +97,7 @@ include_once "includes/nav.include.php";
     $n = $p->show();
     if($n){
       foreach($n as $list){
-        echo "<div id='list'><div class="topPost"><h2>".$list['subject']. " | </h2><h3>" .$list['mention']. "</h3></div><p>" .$list['text']."</p></div>";
+        echo "<div id='list'><div class='topPost'><h2>".$list['subject']. " | </h2><h3>" .$list['mention']. "</h3></div><p>" .$list['text']."</p></div>";
         echo "<div class='movie_choice'>
               <div id='".$list['id']."' class='rate_widget'>
               <div class='star_1 ratings_stars'></div>

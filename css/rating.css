@@ -1,10 +1,9 @@
   .rate_widget {
-            border:     1px solid #CCC;
-            overflow:   visible;
-            padding:    10px;
-            position:   relative;
-            width:      190px;
-            height:     32px;
+            overflow: visible;
+            margin: 20px 0 0 0;
+            position: relative;
+            width: 170px;
+            height: 22px;
         }
         .ratings_stars {
             background: url('../images/star_empty.png') no-repeat;
@@ -20,15 +19,12 @@
             background: url('../images/star_highlight.png') no-repeat;
         }
         .total_votes {
-            background: #eaeaea;
-            top: 58px;
-            left: 0;
+            top: 30px;
             padding: 5px;
-            position:   absolute;  
         } 
         .movie_choice {
             font: 10px verdana, sans-serif;
-            margin: 0 auto 40px auto;
+            height: 50px;
         }
         h1 {
             text-align: center;

@@ -1,8 +1,7 @@
 	<nav>
     <div id="logo">
-                <img src="images/logowit.png" width="150" height="70" alt="logo">
+                <a href="index.php"><img src="images/logowit.png" width="150" height="70" alt="logo"></a>
             </div>
-
 		<div id="main">
 			<ul>
 				<li><a href="index.php">home</a></li>

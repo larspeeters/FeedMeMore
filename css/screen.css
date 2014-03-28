@@ -97,6 +97,10 @@ textarea
 {
 border-radius: 5px;
 }
+
+#logo a:hover{
+	background-color: transparent;
+}
 /************************ NAVIGATION ************************/
 
 /************************ CONTENT ************************/

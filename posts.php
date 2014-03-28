@@ -77,11 +77,9 @@
         var votes = $(widget).data('fsr').number_votes;
         var exact = $(widget).data('fsr').dec_avg;
     
-        window.console && console.log('and now in set_votes, it thinks the fsr is ' + $(widget).data('fsr').number_votes);
-        
         $(widget).find('.star_' + avg).prevAll().andSelf().addClass('ratings_vote');
         $(widget).find('.star_' + avg).nextAll().removeClass('ratings_vote'); 
-        $(widget).find('.total_votes').text( votes + ' votes recorded (' + exact + ' rating)' );
+        $(widget).find('.total_votes').text( votes + ' stem(men) ( rating ' + exact + ' )' );
     }
     // END FIRST THING
     
@@ -101,7 +99,7 @@ include_once "includes/nav.include.php";
       foreach($n as $list){
         echo "<div id='list'><h2>".$list['subject']. "</h2><h3>" .$list['mention']. "</h3><p>" .$list['text']."</p></div>";
         echo "<div class='movie_choice'>
-              <div id='r1' class='rate_widget'>
+              <div id='".$list['id']."' class='rate_widget'>
               <div class='star_1 ratings_stars'></div>
               <div class='star_2 ratings_stars'></div>
               <div class='star_3 ratings_stars'></div>

@@ -5,6 +5,7 @@
 	<title>Home | Feed Me More</title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/screen.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>

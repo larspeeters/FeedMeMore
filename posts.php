@@ -97,18 +97,19 @@ include_once "includes/nav.include.php";
     $p = new Post();
     $n = $p->show();
     if($n){
-      foreach($n as $list){
-        echo "<div id='list'><div class='topPost'><h2>".$list['subject']. " | </h2><h3>" .$list['mention']. "</h3></div><p>" .$list['text']."</p></div>";
-        echo "<div class='movie_choice'>
-              <div id='".$list['id']."' class='rate_widget'>
-              <div class='star_1 ratings_stars'></div>
-              <div class='star_2 ratings_stars'></div>
-              <div class='star_3 ratings_stars'></div>
-              <div class='star_4 ratings_stars'></div>
-              <div class='star_5 ratings_stars'></div>
-              <div class='total_votes'>vote data</div>
-              </div>
-              </div><hr>";
+      foreach($n as $list){ ?>
+        <div id='list'><div class='topPost'><h2><?php $list['subject'] ?> | </h2><h3><?php $list['mention'] ?></h3></div><p><?php $list['text'] ?></p></div>";
+        <div class='movie_choice'>
+        <div id='<?php $list['id'] ?>' class='rate_widget'>
+        <div class='star_1 ratings_stars'></div>
+        <div class='star_2 ratings_stars'></div>
+        <div class='star_3 ratings_stars'></div>
+        <div class='star_4 ratings_stars'></div>
+        <div class='star_5 ratings_stars'></div>
+        <div class='total_votes'>vote data</div>
+        </div>
+        </div><hr>
+              <?php
       }
       if (!empty($_POST['remove']))
       {

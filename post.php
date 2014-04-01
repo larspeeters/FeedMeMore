@@ -28,6 +28,7 @@
 	<title>Post je verbetering of klacht | Feed Me More</title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/screen.css">
+	<link rel="icon" type="image/png" href="images/favicon.ico">
 </head>
 
 <body>

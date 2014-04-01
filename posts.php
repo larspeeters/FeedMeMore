@@ -7,6 +7,7 @@
 	<title>Verbeteringen en klachten | Feed Me More</title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/screen.css">
+    <link rel="icon" type="image/png" href="images/favicon.ico">
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <link rel="stylesheet" type="text/css" href="css/rating.css">
   <script>

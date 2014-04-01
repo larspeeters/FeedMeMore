@@ -26,8 +26,6 @@
             font: 10px verdana, sans-serif;
             height: 50px;
         }
-        h1 {
-            text-align: center;
-            width: 400px;
-            margin: 20px auto;
+        #votes {
+        float: left;
         }

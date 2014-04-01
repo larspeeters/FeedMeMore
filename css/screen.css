@@ -1,7 +1,7 @@
 body{
-	font-family: Verdana, Geneva, sans-serif;
+	font-family: Arial, sans-serif;
 	background-image:url(../images/body.png);
-	font-size: 15px;
+	font-size: 14px;
 }
 
 /************************ NAVIGATION ************************/
@@ -9,7 +9,7 @@ nav{
 	height: 90px;
 	background-color: #EC4B2E;
 	margin-bottom: 50px;
-	font-size: 18px;
+	font-size: 15px;
 }
 
 

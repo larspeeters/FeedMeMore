@@ -10,6 +10,7 @@ nav{
 	background-color: #EC4B2E;
 	margin-bottom: 50px;
 	font-size: 15px;
+	text-transform: capitalize;
 }
 
 
@@ -25,7 +26,7 @@ nav #logo{
 }
 
 nav #main{
-	width: 750px;
+	width: 605px;
 	/* float: left; */
 	/* overflow: auto; */
 	/* margin-top: 13px; */
@@ -48,7 +49,7 @@ nav a{
 	color: white;
 	padding:20px;
 	padding-top: 35px;
-	padding-bottom: 33px;
+	padding-bottom: 38px;
 	
 }
 

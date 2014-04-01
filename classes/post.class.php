@@ -71,7 +71,7 @@
 				$mysql_database = "a8154344_imd";
 
 				$conn = new mysqli($mysql_host, $mysql_user, $mysql_password, $mysql_database);
-				$sql = "select * from tblPost";
+				$sql = "select * from tblPost order by id desc";
 				
 				$result = mysqli_query($conn,$sql);
 				$array = array();

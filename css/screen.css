@@ -60,14 +60,20 @@ nav a:hover{
 	
 }
 
-#login input[type="text"], #login input[type="password"] {
+#login input[type="text"], #login input[type="password"], #login input[type="button"] {
 	width: 100px;
+	height: 25px;
 	font-size: 12px;
 	margin-bottom: 5px;
+	border-radius: 3px;
+	border-color:#D3361C;
+	border-style: solid;
+	border-width: 1px;
+	
 }
 
 #login input[type="button"]{
-	font-size: 12px;
+	margin-right: 20px;
 }
 
 

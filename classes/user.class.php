@@ -1,4 +1,6 @@
 <?php
+	include_once("database.class.php");
+	
 	class User
 	{
 		private $m_iID;
@@ -35,17 +37,15 @@
 
 		public function Save()
 		{
-			$mysql_host = "mysql1.000webhost.com";	
-			$mysql_user = "a8154344_php";
-			$mysql_password = "Imd123)";
-			$mysql_database = "a8154344_imd";
-
-			$conn  = new mysqli($mysql_host, $mysql_user, $mysql_password, $mysql_database);
-			$sql = "insert into tblPost (subject, mention, text) values ('".$conn->real_escape_string($this->m_sSubject)."', 
-																	  '".$conn->real_escape_string($this->m_sMention)."', 
-																	  '".$conn->real_escape_string($this->m_sText)."');";
-			$conn->query($sql);
-		}
+			$db = new Database();
+			$sql = "insert into tblUsers (first_name, last_name, password, email, avatar, isAdmin) values ('".$db->conn->real_escape_string($this->m_sFirstname)."', 
+																	  '".$db->conn->real_escape_string($this->m_sLastname)."', 
+																	  '".$db->conn->real_escape_string($this->m_sPassword)."',
+																	  '".$db->conn->real_escape_string($this->m_sEmail)."',
+																	  '".$db->conn->real_escape_string($this->m_sAvatar)."',
+																	  0);";
+			$db->conn->query($sql);
+				}
 		
 		public function getUser($id)
 		{

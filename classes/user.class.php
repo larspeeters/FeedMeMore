@@ -73,7 +73,8 @@
 																		  '".$db->conn->real_escape_string($this->m_sEmail)."',
 																		  '".$db->conn->real_escape_string($this->m_sAvatar)."',
 																		  0);";
-			$this->uploadImage();
+			if(substr($this->m_sAvatar,0,7) != "http://")
+				$this->uploadImage();
 			$db->conn->query($sql);
 			}catch(Exception $e){
 				echo $e->getMessage();

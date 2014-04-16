@@ -21,9 +21,7 @@
 		        <input type="button" name="loginSend" value="login"></input>
 	        </form>
 
-	        <form action="" method="post" name="registreer"> 
-		        <input type="button" name="registerSend" value="registreer"></input>
-	        </form>
+	        <a href="register.php" id="btnRegister" >Registreren</a>
 		</div>
 <?php endif;?>
 	</nav>

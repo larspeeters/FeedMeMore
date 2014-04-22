@@ -17,7 +17,7 @@ include_once "includes/nav.include.php";
 ?>
    
 	<article>
-		<!-- HIER WORD NOG AAN GEWERKT
+		<!-- HIER WORD NOG AAN GEWERKT -->
 	<?php 
     $p = new Post();
     $n = $p->show();

@@ -23,19 +23,35 @@
 		}
 ?>
 
-<div id="container"> 
+<div id="containerRegister"> 
 	<form action="" method="POST" enctype="multipart/form-data" id="register">
     	<fieldset>
         	<legend>Nieuwe gebruiker registeren</legend>
-            <label for="firstname">Voornaam: </label> <input type="text" size="50" name="firstname" /><br />
-            <label for="lastname">Familienaam: </label> <input type="text" size="50" name="lastname" /><br />
-            <label for="password">Wachtwoord: </label> <input type="password" size="50" name="password" id="password" /><br />
-            <label for="passwordRep">Herhaal wachtwoord: </label> <input type="password" size="50" name="passwordRep" id="passwordRep" /><span id="passwordmatch" style="color:red;"> </span><br />
-            <label for="email">Email: </label> <input type="text" size="8" maxlength="8" name="email" id="mail"/>@student.thomasmore.be<br />
-            <label for="avatar" >Avatar: </label><img src="images/avatar.png" alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar"/> <br />
-            <input type="file" name="avatar" id="file" /><br />
-            <input type="text" name="gravatar" id="gravatar" /><input type="button" id="image" value="Get gravatar" /><br />
+            <br/>
+           <div id="leftRegister"> 
+           <label for="firstname">Voornaam: </label> 
+           <br />
+           <label for="lastname">Familienaam: </label>
+           <br />  
+            <label for="password">Wachtwoord: </label>
+           <br />
+            <label for="passwordRep">Herhaal wachtwoord: </label>
+            <br />
+            <label for="email">Email: </label>
+            <br/ >
+            <br/>
+             <label for="avatar" >Avatar: </label><img src="images/avatar.png" alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar"/> <br />
+           <div class="avatar"><input type="file" name="avatar" id="file" /></div><br/>
+            <input type="text" name="gravatar" id="gravatar" /><input type="button" id="image" value="Get gravatar" /><br /><br/>
             <input type="submit" value="Registreren" id="btnRegister" />
+           
+           </div>
+           <input type="text" size="50" name="firstname" /><br />
+             <input type="text" size="50" name="lastname" /><br />
+            <input type="password" size="50" name="password" id="password" /><br />
+            <input type="password" size="50" name="passwordRep" id="passwordRep" /><span id="passwordmatch" style="color:red;"> </span><br />
+             <input type="text" size="8" maxlength="8" name="email" id="mail"/>@student.thomasmore.be<br />
+           
         </fieldset>
     </form>
      

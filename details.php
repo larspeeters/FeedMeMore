@@ -21,7 +21,7 @@ include_once "includes/nav.include.php";
 	<?php 
     $p = new Post();
     $n = $p->show();
-    echo "<div id='detailPost'><h2>".$list['subject']."</h2><h3>".$list['mention']."</h3><p>".$list['text']."</p></div>"
+    echo "<div id='detailPost'><h2>".$n['subject']."</h2><h3>".$n['mention']."</h3><p>".$n['text']."</p></div>"
 ?>
 	</article>
 </body>

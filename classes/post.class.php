@@ -81,8 +81,11 @@
 
 				$conn = new mysqli($mysql_host, $mysql_user, $mysql_password, $mysql_database);
 				$sql = "select * from tblPost order by id desc";
+				
 				if(!empty($this->m_iId))
 					$sql += "Where ID ='".$this->m_iId."'";
+				
+				print_r($sql);
 				$result = mysqli_query($conn,$sql);
 				$array = array();
 				

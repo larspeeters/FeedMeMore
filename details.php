@@ -8,7 +8,6 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/screen.css">
 	<link rel="icon" type="image/png" href="images/favicon.ico">
-	<!--<link rel="icon" href="images/favicon.ico" type="image/x-icon" />-->
 </head>
 
 <body>
@@ -20,8 +19,10 @@ include_once "includes/nav.include.php";
 		<!-- HIER WORD NOG AAN GEWERKT -->
 	<?php 
     $p = new Post();
-    $n = $p->show();
-    echo "<div id='detailPost'><h2>".$n['subject']."</h2><h3>".$n['mention']."</h3><p>".$n['text']."</p></div>"
+    $p->Id = $_GET['id'];
+    $p->show();
+    var_dump($p);
+    echo "<div id='detailPost'><h2>".$p['subject']."</h2><h3>".$p['mention']."</h3><p>".$p['text']."</p></div>"
 ?>
 	</article>
 </body>

@@ -3,7 +3,8 @@
 	{
 		private $m_sSubject;
 		private $m_sMention;
-		private $m_sText;
+		private $m_sText;		
+		private $m_iId;
 		// gewijzigd
 		public function __set($p_sProperty, $p_vValue)
 		{
@@ -29,6 +30,10 @@
 				}
 					$this->m_sText = $p_vValue;
 					break;
+
+				case 'Id':
+					$this->m_iId = $p_vValue;
+					break;
 			}
 		}
 
@@ -45,6 +50,10 @@
 
 				case 'Text':
 					return $this->m_sText;
+					break;
+
+				case 'Id':
+					return $this->m_iId;
 					break;
 			}
 		}
@@ -72,7 +81,8 @@
 
 				$conn = new mysqli($mysql_host, $mysql_user, $mysql_password, $mysql_database);
 				$sql = "select * from tblPost order by id desc";
-				
+				if(!empty($this->m_iId))
+					$sql += "Where ID ='".$this->m_iId."'";
 				$result = mysqli_query($conn,$sql);
 				$array = array();
 				

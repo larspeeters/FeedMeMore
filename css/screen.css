@@ -108,6 +108,16 @@ border-radius: 5px;
 #logo a:hover{
 	background-color: transparent;
 }
+
+#Register{
+	text-decoration: none;
+	color: white;
+	
+	padding:0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	
+}
 /************************ NAVIGATION ************************/
 
 /************************ CONTENT ************************/

@@ -95,7 +95,7 @@ include_once "includes/nav.include.php";
 	<article>
 		<?php 
     $p = new Post();
-    $n = $p->show();
+    $n = $p->Show();
     if($n){
       foreach($n as $list){
         echo "<div id='list'><a href='details.php?id=".$list['id'];
@@ -112,11 +112,6 @@ include_once "includes/nav.include.php";
                       </div>
                   </div>
               </div><hr>";
-      }
-      if (!empty($_POST['remove']))
-      {
-        $r = new Post();
-        $r->remove();
       }
     }
 

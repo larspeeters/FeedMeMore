@@ -16,14 +16,12 @@ include_once "includes/nav.include.php";
 ?>
    
 	<article>
-		<!-- HIER WORD NOG AAN GEWERKT -->
-	<?php 
-    $p = new Post();
-    $p->Id = $_GET['id'];
-    $p->show();
-    var_dump($p);
-    echo "<div id='detailPost'><h2>".$p['subject']."</h2><h3>".$p['mention']."</h3><p>".$p['text']."</p></div>"
-?>
+	<?php
+		$p = new Post();
+		$p->Id = $_GET['id'];
+		$s = $p->ShowSpecific();
+    	echo "<div id='detailPost'><h2>".$s['subject']."</h2><h3>".$s['mention']."</h3><p>".$s['text']."</p></div>";
+	?>
 	</article>
 </body>
 </html>

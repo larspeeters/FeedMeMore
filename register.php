@@ -11,31 +11,41 @@
 <body>
 <?php include_once "includes/nav.include.php";
 		include_once "classes/user.class.php";
-
+		$error = "";
 		if(!empty($_POST)){
+			try{
 			$usr = new User();
 			$usr->Firstname = $_POST['firstname'];
 			$usr->Lastname = $_POST['lastname'];
 			$usr->Password = $_POST['password'];
 			$usr->Email = $_POST['email']."@student.thomasmore.be";
-			
+			if(!empty($_FILES['avatar']['name']) || !empty($_POST['gravatar'])){
+				if(empty($_FILES['avatar']['name']))
+					$usr->Avatar = $_POST['linkgrav'];
+				else{
+					$usr->Avatar = $_FILES['avatar']['name'];}
+			}
 			$usr->Save();
+			}catch(Exception $e){
+				$error = $e->getMessage();
+			}
 		}
 ?>
 
 <div id="container"> 
-	<form action="" method="POST" enctype="multipart/form-data" id="register">
+	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" enctype="multipart/form-data" id="formregister">
     	<fieldset>
-        	<legend>Nieuwe gebruiker registeren</legend>
+        	<legend>Nieuwe gebruiker registreren</legend>
+            <span id="error" ><?php echo $error ?></span><br/>
             <label for="firstname">Voornaam: </label> <input type="text" size="50" name="firstname" /><br />
             <label for="lastname">Familienaam: </label> <input type="text" size="50" name="lastname" /><br />
             <label for="password">Wachtwoord: </label> <input type="password" size="50" name="password" id="password" /><br />
             <label for="passwordRep">Herhaal wachtwoord: </label> <input type="password" size="50" name="passwordRep" id="passwordRep" /><span id="passwordmatch" style="color:red;"> </span><br />
             <label for="email">Email: </label> <input type="text" size="8" maxlength="8" name="email" id="mail"/>@student.thomasmore.be<br />
-            <label for="avatar" >Avatar: </label><img src="images/avatar.png" alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar"/> <br />
+            <label for="avatar" >Avatar: </label><img src="images/avatar.png" alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar" /> <br />
             <input type="file" name="avatar" id="file" /><br />
-            <input type="text" name="gravatar" id="gravatar" /><input type="button" id="image" value="Get gravatar" /><br />
-            <input type="submit" value="Registreren" id="btnRegister" />
+            <input type="text" name="gravatar" id="gravatar" /><input type="button" id="image" value="Get gravatar" /><input type="text" hidden="hidden" name="linkgrav" id="link"/><br />
+            <input type="submit" value="Registreren" id="btnRegister" /> <input type="button" value="Velden leegmaken" id="formreset" />
         </fieldset>
     </form>
      
@@ -43,11 +53,16 @@
 </body>
 <script>
 $(document).ready(function(e) {
-    $("#passwordRep").keypress(function(e) {
+	$('#formreset').click(function(){
+        $("#formregister").get(0).reset();
+  });
+    $("#passwordRep").keyup(function(e) {
         if($("#passwordRep").val() != $("#password").val()){
 			$("#passwordmatch").html("Wachtwoorden komen niet overeen.");
+			$("#btnRegister").attr("disabled", "disabled");
 		}
-		else{$("#passwordmatch").html("");}
+		else{$("#passwordmatch").html("");
+		$("#btnRegister").removeAttr("disabled"); }
     });
 	$("#file").change(function(){
 		if (this.files && this.files[0]) {
@@ -68,11 +83,13 @@ $(document).ready(function(e) {
 		  data: {"gravatar": $("#gravatar").val()},
           success: function(data){
               $("#avatar").attr("src", data);
+			   $("#link").val(data);
           }
        });
 
     }
 )
+
 });
 
 </script>

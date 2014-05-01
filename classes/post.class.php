@@ -1,9 +1,12 @@
 <?php
+	include_once("database.class.php");
+
 	class Post
 	{
 		private $m_sSubject;
 		private $m_sMention;
-		private $m_sText;
+		private $m_sText;		
+		private $m_iId;
 		// gewijzigd
 		public function __set($p_sProperty, $p_vValue)
 		{
@@ -29,6 +32,10 @@
 				}
 					$this->m_sText = $p_vValue;
 					break;
+
+				case 'Id':
+					$this->m_iId = $p_vValue;
+					break;
 			}
 		}
 
@@ -46,34 +53,31 @@
 				case 'Text':
 					return $this->m_sText;
 					break;
+
+				case 'Id':
+					return $this->m_iId;
+					break;
 			}
 		}
 
 		public function Save()
 		{
-			$mysql_host = "mysql1.000webhost.com";	
-			$mysql_user = "a8154344_php";
-			$mysql_password = "Imd123)";
-			$mysql_database = "a8154344_imd";
+			$db = new Database();
 
-			$conn  = new mysqli($mysql_host, $mysql_user, $mysql_password, $mysql_database);
-			$sql = "insert into tblPost (subject, mention, text) values ('".$conn->real_escape_string($this->m_sSubject)."', 
-																	  '".$conn->real_escape_string($this->m_sMention)."', 
-																	  '".$conn->real_escape_string($this->m_sText)."');";
-			$conn->query($sql);
+			$sql = "insert into tblPost (subject, mention, text) values ('".$db->conn->real_escape_string($this->m_sSubject)."', 
+																	  '".$db->conn->real_escape_string($this->m_sMention)."', 
+																	  '".$db->conn->real_escape_string($this->m_sText)."');";
+			$db->conn->query($sql);
 		}
 
-		public function show()
+		public function Show()
 			{
-				$mysql_host = "mysql1.000webhost.com";	
-				$mysql_user = "a8154344_php";
-				$mysql_password = "Imd123)";
-				$mysql_database = "a8154344_imd";
-
-				$conn = new mysqli($mysql_host, $mysql_user, $mysql_password, $mysql_database);
-				$sql = "select * from tblPost order by id desc";
 				
-				$result = mysqli_query($conn,$sql);
+				$db = new Database();
+
+				$sql = "select * from tblPost order by id desc";
+
+				$result = $db->conn->query($sql);
 				$array = array();
 				
 				while($row = mysqli_fetch_array($result)){
@@ -82,6 +86,26 @@
 				
 				return $array;
 			}
+
+		public function ShowSpecific()
+		{
+			$db = new Database();
+			$sql = "select * from tblPost where id='" . $_GET["id"] ."' order by id desc";
+
+			if($result = $db->conn->query($sql))
+			{
+				$array = mysqli_fetch_array($result);
+				if(!empty($array))
+				{
+					return $array;
+				}
+				else
+				{
+					echo "Deze pagina bestaat niet.";
+				}
+				mysqli_close($db->conn);
+			}
+		}
 	}
 
 ?>

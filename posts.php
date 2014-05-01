@@ -95,10 +95,11 @@ include_once "includes/nav.include.php";
 	<article>
 		<?php 
     $p = new Post();
-    $n = $p->show();
+    $n = $p->Show();
     if($n){
       foreach($n as $list){
-        echo "<div id='list'><div class='topPost'><h2>".$list['subject']. " | </h2><h3>" .$list['mention']. "</h3></div><p>" .$list['text']."</p></div>";
+        echo "<div id='list'><a href='details.php?id=".$list['id'];
+        echo "'><div class='topPost'><h2>".$list['subject']. " | </h2><h3>" .$list['mention']. "</h3></div></a>" .$list['text']."</p></div>";
         echo "<div class='movie_choice'>
                   <div id='".$list['id']."' class='rate_widget'>
                       <div class='star_1 ratings_stars'></div>
@@ -111,11 +112,6 @@ include_once "includes/nav.include.php";
                       </div>
                   </div>
               </div><hr>";
-      }
-      if (!empty($_POST['remove']))
-      {
-        $r = new Post();
-        $r->remove();
       }
     }
 

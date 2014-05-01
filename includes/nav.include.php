@@ -21,7 +21,7 @@
 		        <input type="button" name="loginSend" value="login"></input>
 	        </form>
 
-	        <a href="register.php" id="btnRegister" >Registreren</a>
+	        <a href="register.php" id="Register" >Registreren</a>
 		</div>
 <?php endif;?>
 	</nav>

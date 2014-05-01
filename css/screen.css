@@ -60,14 +60,20 @@ nav a:hover{
 	
 }
 
-#login input[type="text"], #login input[type="password"] {
+#login input[type="text"], #login input[type="password"], #login input[type="button"] {
 	width: 100px;
+	height: 25px;
 	font-size: 12px;
 	margin-bottom: 5px;
+	border-radius: 3px;
+	border-color:#D3361C;
+	border-style: solid;
+	border-width: 1px;
+	
 }
 
 #login input[type="button"]{
-	font-size: 12px;
+	margin-right: 20px;
 }
 
 
@@ -102,9 +108,70 @@ border-radius: 5px;
 #logo a:hover{
 	background-color: transparent;
 }
+
+#Register{
+	text-decoration: none;
+	color: white;
+	
+	padding:0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	
+}
 /************************ NAVIGATION ************************/
 
 /************************ CONTENT ************************/
+#container{
+	overflow: auto;
+	width:100%;
+    max-width:960px;
+	margin: 0 auto;
+	background-color: #F4F4F4;
+	padding: 30px;
+	
+}
+
+#containerRegister{
+	overflow: auto;
+	width:100%;
+    max-width:960px;
+	margin: 0 auto;
+	
+	background-color: #F4F4F4;
+	padding: 30px;
+	padding-left: 170px;
+	
+}
+
+#containerRegister input[type="submit"], input[type="button"]{
+	border-radius: 5px;
+	background-color: #00A0AE;
+	color:white;
+	border-style: solid;
+	border-width: 1px;
+	width: 100px;
+	height: 25px;
+	font-size: 14px;
+	
+}
+
+#containerRegister input[type="text"], input[type="password"]{
+	border-style: solid;
+	border-width: 1px;
+	color:#A8A8A8;
+	margin-top:4px;
+	
+}
+
+.avatar{
+	border-radius: 5px;
+	background-color: #00A0AE;
+	color:white;
+	padding:5px;
+}
+
+
+
 article{
 	overflow: auto;
 	width:100%;
@@ -151,6 +218,7 @@ textarea{
 #leftCol{
 	float: left;
 	width: 48%;
+	
 }
 
 #post{
@@ -164,5 +232,11 @@ textarea{
 
 #list .topPost{
 	height: 45px;
+}
+
+#leftRegister{
+	float: left;
+	width: 40%;
+	line-height:25px;
 }
 /************************ CONTENT ************************/

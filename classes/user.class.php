@@ -91,7 +91,7 @@
 		// of $_FILES.
 		if(!empty($_FILES)){
 			if(filesize($_FILES['avatar']['tmp_name']) <= 512000){
-				$uploaddir = '/images/';
+				$uploaddir = '/images/avatars/';
 				$uploadfile = $uploaddir . basename($_FILES['avatar']['name']);
 				define ('SITE_ROOT', realpath(dirname($_FILES['avatar']['name'])));
 				if (!move_uploaded_file($_FILES['avatar']['tmp_name'], SITE_ROOT.$uploadfile)) {

@@ -1,12 +1,10 @@
 <?php
-	include_once("database.class.php");
-
+include_once("database.class.php");
 	class Post
 	{
 		private $m_sSubject;
 		private $m_sMention;
-		private $m_sText;		
-		private $m_iId;
+		private $m_sText;
 		// gewijzigd
 		public function __set($p_sProperty, $p_vValue)
 		{
@@ -32,10 +30,6 @@
 				}
 					$this->m_sText = $p_vValue;
 					break;
-
-				case 'Id':
-					$this->m_iId = $p_vValue;
-					break;
 			}
 		}
 
@@ -53,10 +47,6 @@
 				case 'Text':
 					return $this->m_sText;
 					break;
-
-				case 'Id':
-					return $this->m_iId;
-					break;
 			}
 		}
 
@@ -70,42 +60,21 @@
 			$db->conn->query($sql);
 		}
 
-		public function Show()
+		public function show()
 			{
-				
 				$db = new Database();
 
-				$sql = "select * from tblPost order by id desc";
-
-				$result = $db->conn->query($sql);
+				$sql = "select * from tblPost p join tblusers u on p.user_id = u.id order by u.id desc";
 				$array = array();
-				
-				while($row = mysqli_fetch_array($result)){
+				if($result = $db->conn->query($sql)){
+					
+			 while($row = mysqli_fetch_array($result)){
 					array_push($array, $row);
 					}
-				
-				return $array;
 			}
-
-		public function ShowSpecific()
-		{
-			$db = new Database();
-			$sql = "select * from tblPost where id='" . $_GET["id"] ."' order by id desc";
-
-			if($result = $db->conn->query($sql))
-			{
-				$array = mysqli_fetch_array($result);
-				if(!empty($array))
-				{
-					return $array;
-				}
-				else
-				{
-					echo "Deze pagina bestaat niet.";
-				}
-				mysqli_close($db->conn);
+			mysqli_close($db->conn);
+			return $array;
 			}
-		}
 	}
 
 ?>

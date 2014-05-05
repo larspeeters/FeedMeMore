@@ -12,7 +12,13 @@
 				<li><a href="contact.php">bereik ons</a></li>
 			</ul>
 		</div>
-<?php session_start();
+<?php
+	if(isset($_GET['logout'])){
+		session_start();
+		session_destroy();
+		header("Location: index.php");
+	}
+	session_start();
 		if(!isset($_SESSION['username'])):?>
 		<div id="login">
 	        <form action="/scripts/login.php" method="post" name="login">
@@ -27,10 +33,9 @@
 	<div id="logout">
      
 	<?php if(substr($_SESSION['avatar'],0,7) != "http://"){?>
-    		<span><img src="<?php echo "../images/avatars/".$_SESSION['avatar'];} else echo $_SESSION['avatar']; ?>" width="50px" height="50px" title="Profielfoto" /> <?php echo $_SESSION['username'];?></span>
-	        <form action="" method="post" name="logout">
-		        <input type="submit" name="loginSend" value="Log out"></input>
-	        </form>
+    		<span><img src="<?php echo "../images/avatars/".$_SESSION['avatar']; ?>" width="50px" height="50px" title="Profielfoto" />  <?php } else { ?> 
+            <span><img src="<?php echo $_SESSION['avatar']; ?>" width="50px" height="50px" title="Profielfoto" /> <?php } ?><a href="../profile.php" ><?php echo $_SESSION['username'];?></a></span>
+	        <a href="?logout=true" >[ Log out ] </a>
 		</div>
 <?php endif; ?>
 	</nav>

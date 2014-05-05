@@ -9,49 +9,45 @@
 </head>
 
 <body>
-<?php include_once "includes/nav.include.php";
-		include_once "classes/user.class.php";
-
+<?php  include("classes/user.class.php");
+include("includes/nav.include.php");
+		$error = "";
 		if(!empty($_POST)){
+			if(empty($_POST['username'])){
+			try{
 			$usr = new User();
 			$usr->Firstname = $_POST['firstname'];
 			$usr->Lastname = $_POST['lastname'];
 			$usr->Password = $_POST['password'];
 			$usr->Email = $_POST['email']."@student.thomasmore.be";
-
+			if(!empty($_FILES['avatar']['name']) || !empty($_POST['gravatar'])){
+				if(empty($_FILES['avatar']['name']))
+					$usr->Avatar = $_POST['linkgrav'];
+				else{
+					$usr->Avatar = $_FILES['avatar']['name'];}
+			}
 			$usr->Save();
+			}catch(Exception $e){
+				$error = $e->getMessage();
+			}
+			}
 		}
 ?>
 
-<div id="containerRegister"> 
-	<form action="" method="POST" enctype="multipart/form-data" id="register">
+<div id="container"> 
+	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" enctype="multipart/form-data" id="formregister">
     	<fieldset>
-        	<legend>Nieuwe gebruiker registeren</legend>
-            <br/>
-           <div id="leftRegister"> 
-           <label for="firstname">Voornaam: </label> 
-           <br />
-           <label for="lastname">Familienaam: </label>
-           <br />  
-            <label for="password">Wachtwoord: </label>
-           <br />
-            <label for="passwordRep">Herhaal wachtwoord: </label>
-            <br />
-            <label for="email">Email: </label>
-            <br/ >
-            <br/>
-             <label for="avatar" >Avatar: </label><img src="images/avatar.png" alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar"/> <br />
-           <div class="avatar"><input type="file" name="avatar" id="file" /></div><br/>
-            <input type="text" name="gravatar" id="gravatar" /><input type="button" id="image" value="Get gravatar" /><br /><br/>
-            <input type="submit" value="Registreren" id="btnRegister" />
-           
-           </div>
-           <input type="text" size="50" name="firstname" /><br />
-             <input type="text" size="50" name="lastname" /><br />
-            <input type="password" size="50" name="password" id="password" /><br />
-            <input type="password" size="50" name="passwordRep" id="passwordRep" /><span id="passwordmatch" style="color:red;"> </span><br />
-             <input type="text" size="8" maxlength="8" name="email" id="mail"/>@student.thomasmore.be<br />
-           
+        	<legend>Nieuwe gebruiker registreren</legend>
+            <span id="error" ><?php echo $error ?></span><br/>
+            <label for="firstname">Voornaam: </label> <input type="text" size="50" name="firstname" /><br />
+            <label for="lastname">Familienaam: </label> <input type="text" size="50" name="lastname" /><br />
+            <label for="password">Wachtwoord: </label> <input type="password" size="50" name="password" id="password" /><span id="passwordCheck" style="color:red;"> </span><br />
+            <label for="passwordRep">Herhaal wachtwoord: </label> <input type="password" size="50" name="passwordRep" id="passwordRep" /><span id="passwordmatch" style="color:red;"> </span><br />
+            <label for="email">Email: </label> <input type="text" size="8" maxlength="8" name="email" id="mail"/>@student.thomasmore.be<br />
+            <label for="avatar" >Avatar: </label><img src="images/avatar.png" alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar" /> <br />
+            <input type="file" name="avatar" id="file" /><br />
+            <input type="text" name="gravatar" id="gravatar" /><input type="button" id="image" value="Get gravatar" /><input type="text" hidden="hidden" name="linkgrav" id="link"/><br />
+            <input type="submit" value="Registreren" id="btnRegister" /> <input type="button" value="Velden leegmaken" id="formreset" />
         </fieldset>
     </form>
      
@@ -59,11 +55,25 @@
 </body>
 <script>
 $(document).ready(function(e) {
-    $("#passwordRep").keypress(function(e) {
+	$('#formreset').click(function(){
+        $("#formregister").get(0).reset();
+  });
+  $("#password").keyup(function(e) {
+	  	if($("#password").val().length < 8){
+			$("#passwordCheck").html("Wachtwoorden moet minimum 8 characters bevatten.");
+			$("input[type='submit']").attr("disabled", "disabled");
+		}else{
+			$("#passwordCheck").html("");
+			$("input[type='submit']").removeAttr("disabled"); 
+		}
+	  	});
+    $("#passwordRep").keyup(function(e) {
         if($("#passwordRep").val() != $("#password").val()){
+			$("input[type='submit']").attr("disabled", "disabled");
 			$("#passwordmatch").html("Wachtwoorden komen niet overeen.");
 		}
-		else{$("#passwordmatch").html("");}
+		else{$("#passwordmatch").html("");
+		$("input[type='submit']").removeAttr("disabled"); }
     });
 	$("#file").change(function(){
 		if (this.files && this.files[0]) {
@@ -84,11 +94,13 @@ $(document).ready(function(e) {
 		  data: {"gravatar": $("#gravatar").val()},
           success: function(data){
               $("#avatar").attr("src", data);
+			   $("#link").val(data);
           }
        });
 
     }
 )
+
 });
 
 </script>

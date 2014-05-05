@@ -35,7 +35,7 @@
 						throw new Exception("Gelieve een email adres in te vullen.");
 					else{
 						if(substr($p_vValue,0,1) == 'r')
-							$this->m_sPassword = $p_vValue;
+							$this->m_sEmail = $p_vValue;
 						else
 							throw new Exception("Gelieve een geldig email adres in te vullen. (Vb. rxxxxxxx)");
 					}
@@ -65,6 +65,8 @@
 		public function Save()
 		{
 			try{
+				if(substr($this->m_sAvatar,0,7) != "http://")
+					$this->uploadImage();
 				$db = new Database();
 			
 				$sql = "insert into tblUsers (first_name, last_name, password, email, avatar, isAdmin) values ('".$db->conn->real_escape_string($this->m_sFirstname)."', 
@@ -73,18 +75,38 @@
 																		  '".$db->conn->real_escape_string($this->m_sEmail)."',
 																		  '".$db->conn->real_escape_string($this->m_sAvatar)."',
 																		  0);";
-			if(substr($this->m_sAvatar,0,7) != "http://")
-				$this->uploadImage();
 			$db->conn->query($sql);
+			mysqli_close($db->conn); //close connection with Dbase
 			}catch(Exception $e){
 				echo $e->getMessage();
 			}
 				}
 			
-		public function getUser($id)
+		public function getUser()
 		{
-			
-		
+			$db = new Database();
+			$sql = "Select * from tblUsers where email='".$db->conn->real_escape_string($this->m_sEmail)."' AND password='".$db->conn->real_escape_string($this->hashed($this->m_sPassword))."'";
+			if($result = $db->conn->query($sql)){
+			 $array = mysqli_fetch_array($result);
+				//query went OK
+				if(!empty($array))
+					return $array;
+				else
+					return false;
+			}
+			mysqli_close($db->conn); //close connection with Dbase
+		}
+		public function changePassword()
+		{
+			try{
+			$db = new Database();
+			$sql = "UPDATE tblUsers SET password='".$db->conn->real_escape_string($this->hashed($this->m_sPassword))."' WHERE email='".$db->conn->real_escape_string($this->m_sEmail)."'";
+			$db->conn->query($sql);
+			mysqli_close($db->conn); //close connection with Dbase
+			}catch(Exception $e){
+				echo $e->getMessage();
+			}
+			mysqli_close($db->conn); //close connection with Dbase
 		}
 	private function uploadImage(){
 		// In PHP versions earlier than 4.1.0, $HTTP_POST_FILES should be used instead
@@ -92,10 +114,12 @@
 		if(!empty($_FILES)){
 			if(filesize($_FILES['avatar']['tmp_name']) <= 512000){
 				$uploaddir = '/images/avatars/';
-				$uploadfile = $uploaddir . basename($_FILES['avatar']['name']);
-				define ('SITE_ROOT', realpath(dirname($_FILES['avatar']['name'])));
+				$uploadfile = $uploaddir."avatar_". basename(substr($this->m_sEmail,0,7)).substr($_FILES['avatar']['name'],strpos($_FILES['avatar']['name'],"."));
+				define ('SITE_ROOT', realpath(dirname(substr($this->m_sEmail,0,7))));
 				if (!move_uploaded_file($_FILES['avatar']['tmp_name'], SITE_ROOT.$uploadfile)) {
 					throw new Exception("Avatar mag niet groter zijn dan 500KB.");
+				}else{
+					$this->m_sAvatar = "avatar_". basename(substr($this->m_sEmail,0,7)).substr($_FILES['avatar']['name'],strpos($_FILES['avatar']['name'],"."));
 				}
 			}else{
 				throw new Exception("Avatar mag niet groter zijn dan 500KB.");

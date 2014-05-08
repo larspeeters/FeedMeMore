@@ -34,7 +34,7 @@
 					if(empty($p_vValue))
 						throw new Exception("Gelieve een email adres in te vullen.");
 					else{
-						if(substr($p_vValue,0,1) == 'r')
+						if(substr($p_vValue,0,1) == 'r' && strlen($p_vValue) == 30)
 							$this->m_sEmail = $p_vValue;
 						else
 							throw new Exception("Gelieve een geldig email adres in te vullen. (Vb. rxxxxxxx)");
@@ -65,7 +65,7 @@
 		public function Save()
 		{
 			try{
-				if(substr($this->m_sAvatar,0,7) != "http://")
+				if(substr($this->m_sAvatar,0,7) != "http://" && !empty($this->m_sAvatar))
 					$this->uploadImage();
 				$db = new Database();
 			
@@ -85,7 +85,9 @@
 		public function getUser()
 		{
 			$db = new Database();
-			$sql = "Select * from tblUsers where email='".$db->conn->real_escape_string($this->m_sEmail)."' AND password='".$db->conn->real_escape_string($this->hashed($this->m_sPassword))."'";
+			$sql = "Select * from tblUsers where email='".$db->conn->real_escape_string($this->m_sEmail)."'";
+			if(!empty($this->m_sPassword))
+				$sql = $sql. " AND password='".$db->conn->real_escape_string($this->hashed($this->m_sPassword))."'";
 			if($result = $db->conn->query($sql)){
 			 $array = mysqli_fetch_array($result);
 				//query went OK

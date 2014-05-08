@@ -1,7 +1,7 @@
 <?php
 	include ("../classes/user.class.php");
 	if(isset($_POST)){
-		if(!empty($_POST['username']) && !empty($_POST['password'])){
+		if(isset($_POST['username']) && isset($_POST['password'])){
 			$usr = new User();
 			$usr->Password = $_POST['password'];
 			$usr->Email = $_POST['username']."@student.thomasmore.be";
@@ -14,8 +14,15 @@
 				$_SESSION['username'] = $u['first_name']." ".$u['last_name'];
 				$_SESSION['email'] = $u['email'];
 				$_SESSION['avatar'] = $u['avatar'];
+				$_SESSION['admin'] = $u['isAdmin'];
 				header( 'Location: ../index.php' ) ;
 			}			
+		}
+		if(isset($_POST['email'])){
+			$usr = new User();
+			$usr->Email = $_POST['email']."@student.thomasmore.be";
+			if($usr->getUser())
+				echo true;
 		}
 	}
 ?>

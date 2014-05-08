@@ -43,9 +43,10 @@ include("includes/nav.include.php");
             <label for="lastname">Familienaam: </label> <input type="text" size="50" name="lastname" /><br />
             <label for="password">Wachtwoord: </label> <input type="password" size="50" name="password" id="password" /><span id="passwordCheck" style="color:red;"> </span><br />
             <label for="passwordRep">Herhaal wachtwoord: </label> <input type="password" size="50" name="passwordRep" id="passwordRep" /><span id="passwordmatch" style="color:red;"> </span><br />
-            <label for="email">Email: </label> <input type="text" size="8" maxlength="8" name="email" id="mail"/>@student.thomasmore.be<br />
+            <label for="email">Email: </label> <input type="text" size="8" maxlength="8" name="email" id="mail"/>@student.thomasmore.be<span id="emailCheck" style="color:red;"> </span><br />
             <label for="avatar" >Avatar: </label><img src="images/avatar.png" alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar" /> <br />
             <input type="file" name="avatar" id="file" /><br />
+            Of Gravatar (<a href="http://nl.gravatar.com/">?</a>):
             <input type="text" name="gravatar" id="gravatar" /><input type="button" id="image" value="Get gravatar" /><input type="text" hidden="hidden" name="linkgrav" id="link"/><br />
             <input type="submit" value="Registreren" id="btnRegister" /> <input type="button" value="Velden leegmaken" id="formreset" />
         </fieldset>
@@ -84,6 +85,24 @@ $(document).ready(function(e) {
         }
         reader.readAsDataURL(this.files[0]);
     }
+	});
+	$("#mail").keyup(function(e) {
+		if($("#mail").val().length == 8){
+		$.ajax({
+          url: "scripts/login.php",
+          type: "POST",
+		  data: {"email": $("#mail").val()},
+          success: function(data){
+              if(data){
+			  	$("#emailCheck").html("Emailadres is reeds geregistreerd.");
+				$("input[type='submit']").attr("disabled", "disabled");}
+			  else{
+				  $("#emailCheck").html("");
+					$("input[type='submit']").removeAttr("disabled");
+				}
+          }
+		  });
+		}
 	});
 	
 	$('#image').click(

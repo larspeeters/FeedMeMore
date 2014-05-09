@@ -5,8 +5,7 @@
 			$usr = new User();
 			$usr->Password = $_POST['password'];
 			$usr->Email = $_POST['username']."@student.thomasmore.be";
-			$u = $usr->getUser();		
-									
+			$u = $usr->getUser();								
 			if(!empty($u)){
 				if($u['activated']){
 					session_start();

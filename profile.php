@@ -20,24 +20,29 @@ if(isset($_SESSION)):
 	if($_SESSION["admin"])
 		echo "<span>[Administrator]</span>" ?>
 	<h2>Profiel van <?php echo $_SESSION['username']; 	if(empty($_SESSION['avatar'])){ ?>
-     <span><img src="<?php echo "../images/avatars/icon.jpg" ?>" width="50px" height="50px" title="Profielfoto" />
+     <span><img src="<?php echo "../images/avatars/icon.jpg" ?>" width="50px" height="50px" title="Profielfoto" /><br />
 	<?php }else if(substr($_SESSION['avatar'],0,7) != "http://"){?></h2>
-    <img src="<?php echo "../images/avatars/".$_SESSION['avatar']; ?>" width="100px" height="100px" title="Profielfoto" /><?php } else{ ?> 
-    <img src="<?php echo $_SESSION['avatar']; ?>" width="100px" height="100px" title="Profielfoto" /><?php } ?>
+     
+     <img src="<?php echo "../images/avatars/".$_SESSION['avatar']; ?>" width="100px" height="100px" title="Profielfoto" /><?php } else{ ?> 
+    <img src="<?php echo $_SESSION['avatar']; ?>" width="100px" height="100px" title="Profielfoto" /><?php } ?><br />
     <ul>
-    	<li>Gebruikersnaam: <?php echo $_SESSION['username'];?></li>
-        <li>Email: <?php echo $_SESSION['email'];?></li>
-		<li><span id="password">Wachtwoord wijzigen</span>
+    	<li>Gebruikersnaam: <?php echo $_SESSION['username'];?></li><br />
+        <li>Email: <?php echo $_SESSION['email'];?></li><br />
+		<li><span id="password">Wachtwoord wijzigen</span><br /><br />
+       
         <div id="frmPassword" >
         	<form action=# method= >
-            <label for="oudWachtwoord">Huidig wachtwoord: </label>
-            <input type="text" size="25" name="oldPass" /><br />
-            <label for="nieuwWachtwoord">Nieuw wachtwoord: </label>
-            <input type="text" size="25" name="newPass" /><br />
+            <div id="leftProfile">
+            <label for="oudWachtwoord">Huidig wachtwoord: </label><br />
+            <label for="nieuwWachtwoord">Nieuw wachtwoord: </label><br />
             <label for="herhaalWachtwoord">Herhaal wachtwoord: </label>
+            </div>
+            <input type="text" size="25" name="oldPass" /><br />
+            <input type="text" size="25" name="newPass" /><br />
             <input type="text" size="25" name="repPass" />
             </form>
             </div>
+         
         </li>
     </ul>
 <?php else: header("Location: error.php"); endif;?>

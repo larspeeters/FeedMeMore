@@ -58,7 +58,7 @@ include_once "includes/nav.include.php";
 	?>
 	<form name="formComment" method="post" action="">
 		<textarea name="textComment" placeholder="Voeg hier uw reactie."></textarea>
-		<input type="submit" name="submitComment" value="plaats reactie"></input>
+		<input type="submit" name="submitComment" id="submitComment" value="plaats reactie"></input>
 	</form>
 	<?php
 	}

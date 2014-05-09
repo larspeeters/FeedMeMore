@@ -5,11 +5,13 @@
 	{
 		try
 		{
+			session_start();
 			include('classes/post.class.php');
 			$post = new Post();
 			$post->Subject = $_POST['subject'];
 			$post->Mention = $_POST['mention'];
 			$post->Text = $_POST['text'];
+			$post->Id = $_SESSION['id'];
 			
 			$post->Save();
 			$feedback = "Dank u voor u medewerking! U verzending word zo snel mogelijk bekeken.";

@@ -15,7 +15,9 @@ include_once "includes/nav.include.php";
 if(isset($_SESSION)):
 	if($_SESSION["admin"])
 		echo "<span>[Administrator]</span>" ?>
-	<h2>Profiel van <?php echo $_SESSION['username']; 	if(substr($_SESSION['avatar'],0,7) != "http://"){?></h2>
+	<h2>Profiel van <?php echo $_SESSION['username']; 	if(empty($_SESSION['avatar'])){ ?>
+     <span><img src="<?php echo "../images/avatars/icon.jpg" ?>" width="50px" height="50px" title="Profielfoto" />
+	<?php }else if(substr($_SESSION['avatar'],0,7) != "http://"){?></h2>
     <img src="<?php echo "../images/avatars/".$_SESSION['avatar']; ?>" width="100px" height="100px" title="Profielfoto" /><?php } else{ ?> 
     <img src="<?php echo $_SESSION['avatar']; ?>" width="100px" height="100px" title="Profielfoto" /><?php } ?>
     <ul>

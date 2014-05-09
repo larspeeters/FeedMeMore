@@ -14,7 +14,7 @@
 						.$db->conn->real_escape_string($_GET['email'])."' AND hash='"
 						.$db->conn->real_escape_string($_GET['hash'])."' AND activated='0'";
 				if($db->conn->query($sql))
-					echo "Activated!";
+					header("Location: index.php");
 			}
 		}
 	}else{

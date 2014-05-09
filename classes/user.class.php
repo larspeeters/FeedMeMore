@@ -117,7 +117,7 @@
 		$message = '
 		 
 		Bedankt voor het registreren!
-		Om gebruik te kunnen maken van uw account, dient uw deze te activeren via onderstaande link:
+		Om gebruik te kunnen maken van uw account, dient u deze te activeren via onderstaande link:
 		http://feedmemore.net63.net/activate.php?email='.$email.'&hash='.$hash.'
 		
 		Uw inloggegevens

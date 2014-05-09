@@ -28,7 +28,12 @@
 		        <input type="password" size="20" placeholder="Wachtwoord" name="password" />
 		        <input type="submit" name="loginSend" value="login"></input>
 	        </form>
-
+	        <?php
+	        if(isset($_GET))
+	        {
+		        echo "<div class='errorMessage'>".$_GET['error']."</div>";
+	    	}
+	        ?>
 	        <a href="register.php" id="Register" >Registreren</a>
 		</div>
 <?php else: ?>

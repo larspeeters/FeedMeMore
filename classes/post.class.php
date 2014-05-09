@@ -5,6 +5,8 @@ include_once("database.class.php");
 		private $m_sSubject;
 		private $m_sMention;
 		private $m_sText;
+		private $m_iID;
+		
 		// gewijzigd
 		public function __set($p_sProperty, $p_vValue)
 		{
@@ -30,6 +32,9 @@ include_once("database.class.php");
 				}
 					$this->m_sText = $p_vValue;
 					break;
+				case 'Id':
+					$this->m_iID = $p_vValue;
+					break;
 			}
 		}
 
@@ -47,6 +52,9 @@ include_once("database.class.php");
 				case 'Text':
 					return $this->m_sText;
 					break;
+				case 'Id':
+					return $this->m_iID;
+					break;
 			}
 		}
 
@@ -54,9 +62,10 @@ include_once("database.class.php");
 		{
 			$db = new Database();
 
-			$sql = "insert into tblPost (subject, mention, text) values ('".$db->conn->real_escape_string($this->m_sSubject)."', 
+			$sql = "insert into tblPost (subject, mention, text, user_Id) values ('".$db->conn->real_escape_string($this->m_sSubject)."', 
 																	  '".$db->conn->real_escape_string($this->m_sMention)."', 
-																	  '".$db->conn->real_escape_string($this->m_sText)."');";
+																	  '".$db->conn->real_escape_string($this->m_sText)."',
+																	  '".$db->conn->real_escape_string($this->m_iID)."');";
 			$db->conn->query($sql);
 		}
 
@@ -65,6 +74,8 @@ include_once("database.class.php");
 				$db = new Database();
 
 				$sql = "select * from tblPost p join tblusers u on p.user_id = u.id order by u.id desc";
+				if(!empty($this->m_iID))
+					$sql = $sql . " WHERE p.user_id ='".$this->m_iID."'";
 				$array = array();
 				if($result = $db->conn->query($sql)){
 					

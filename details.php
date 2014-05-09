@@ -22,6 +22,10 @@ include_once "includes/nav.include.php";
 		$s = $p->ShowSpecific();
     	echo "<div id='detailPost'><h2>".$s['subject']."</h2><h3>".$s['mention']."</h3><p>".$s['text']."</p></div>";
 	?>
+	<form name="formComment" method="post" action="">
+		<textarea name="textComment" placeholder="Voeg hier uw reactie."></textarea>
+		<input type="button" name="submitComment"></input>
+	</form>
 	</article>
 </body>
 </html>

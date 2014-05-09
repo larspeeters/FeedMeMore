@@ -51,11 +51,11 @@ include("includes/nav.include.php");
             <input type="text" size="50" name="lastname" /><br />
             <input type="password" size="50" name="password" id="password" /><span id="passwordCheck" style="color:red;"> </span><br />
             <input type="password" size="50" name="passwordRep" id="passwordRep" /><span id="passwordmatch" style="color:red;"> </span><br />
-            <input type="text" size="8" maxlength="8" name="email" id="mail"/>@student.thomasmore.be<span id="emailCheck" style="color:red;"> </span><br />
-            <label for="avatar" >Avatar: </label><img src="images/avatar.png" alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar" /> <br />
-            <input type="file" name="avatar" id="file" /><br />
+            <input type="text" size="8" maxlength="8" name="email" id="mail"/>@student.thomasmore.be<span id="emailCheck" style="color:red;"> </span><br /><br />
+            <label for="avatar" >Avatar: </label><img src="images/avatar.png" alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar" /> <br /><br />
+            <input type="file" name="avatar" id="file" /><br /><br />
             Of Gravatar (<a href="http://nl.gravatar.com/">?</a>):
-            <input type="text" name="gravatar" id="gravatar" /><input type="button" id="image" value="Get gravatar" /><input type="text" hidden="hidden" name="linkgrav" id="link"/><br />
+            <input type="text" name="gravatar" id="gravatar" /><input type="button" id="image" value="Get gravatar" /><input type="text" hidden="hidden" name="linkgrav" id="link"/><br /><br />
             <input type="submit" value="Registreren" id="btnRegister" /> <input type="button" value="Velden leegmaken" id="formreset" />
         </fieldset>
     </form>

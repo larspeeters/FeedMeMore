@@ -52,12 +52,21 @@ include_once "includes/nav.include.php";
 	      }
 	    }
 	    echo "</div>";
+	if($_SESSION['username'] == ""){
 	?>
 	<form name="formComment" method="post" action="">
 		<textarea name="textComment" placeholder="Voeg hier uw reactie."></textarea>
 		<input type="submit" name="submitComment" value="plaats reactie"></input>
 	</form>
 	<?php
+	}
+	else{
+		?>
+		<form>
+		<textarea name="textComment" placeholder="Meld u nu aan om een comment te plaatsen"></textarea>
+		</form>
+		<?php
+	}
 		if(isset($error)){ echo "<div id='error'>".$error."<div>"; }
 	?>
 	</article>

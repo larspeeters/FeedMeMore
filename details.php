@@ -40,13 +40,13 @@ include_once "includes/nav.include.php";
     	echo "<div id='detailPost'><h2>".$s[0]['subject']."</h2><h3>".$s[0]['mention']."</h3><p>".$s[0]['text']."</p></div>";
     	echo "<hr>";
     	
-    	$_SESSION['subject'] = $s['subject'];
-    	$_SESSION['mention'] = $s['mention'];
+    	$_SESSION['subject'] = $s[0]['subject'];
+    	$_SESSION['mention'] = $s[0]['mention'];
 
 		$getComm = new Comment();
 
 		$comments = $getComm->ShowComments();
-    
+    	
 	    echo "<div id='commentList'>";
 	    if(isset($comments)){
 	      foreach($comments as $listComments){

@@ -23,7 +23,7 @@ if(isset($_SESSION)):
      <span><img src="<?php echo "../images/avatars/icon.jpg" ?>" width="50px" height="50px" title="Profielfoto" /><br />
 	<?php }else if(substr($_SESSION['avatar'],0,7) != "http://"){?></h2>
      
-     <img src="<?php echo "../images/avatars/".$_SESSION['avatar']; ?>" width="100px" height="100px" title="Profielfoto" /><?php } else{ ?> 
+    <img src="<?php echo "../images/avatars/".$_SESSION['avatar']; ?>" width="100px" height="100px" title="Profielfoto" /><?php } else{ ?> 
     <img src="<?php echo $_SESSION['avatar']; ?>" width="100px" height="100px" title="Profielfoto" /><?php } ?><br />
     <ul>
     	<li>Gebruikersnaam: <?php echo $_SESSION['username'];?></li><br />
@@ -42,9 +42,9 @@ if(isset($_SESSION)):
             <input type="text" size="25" name="repPass" />
             </form>
             </div>
-         
-        </li>
+         </li>
     </ul>
+   
 <?php else: header("Location: error.php"); endif;?>
 </div>
 </body>

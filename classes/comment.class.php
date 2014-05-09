@@ -47,6 +47,7 @@ include_once("database.class.php");
 			$getComm = "select * from tblComments where postSubject= '".$_SESSION['subject']."' and postMention= '".$_SESSION['mention']."';";
 			$getCommResult = $db->conn->query($getComm);
 			$arrayComment = array();
+			
 			if($getCommResult = $db->conn->query($getComm)){
 					
 			 while($commentRow = mysqli_fetch_array($getCommResult)){

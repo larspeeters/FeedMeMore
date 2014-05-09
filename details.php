@@ -39,6 +39,7 @@ include_once "includes/nav.include.php";
 		
     	echo "<div id='detailPost'><h2>".$s[0]['subject']."</h2><h3>".$s[0]['mention']."</h3><p>".$s[0]['text']."</p></div>";
     	echo "<hr>";
+    	
     	$_SESSION['subject'] = $s['subject'];
     	$_SESSION['mention'] = $s['mention'];
 
@@ -47,18 +48,28 @@ include_once "includes/nav.include.php";
 		$comments = $getComm->ShowComments();
     
 	    echo "<div id='commentList'>";
-	    if($comments){
+	    if(isset($comments)){
 	      foreach($comments as $listComments){
-	        echo "<div class='comments'><p>".$listComments['comment']."</p><p>".$listComments['firstname'].$listComments['lastname']."</p></div>";
-	      }
+	       	echo "<div class='comments'><p>".$listComments['comment']."</p><p class='postedBy'>gepost door ".$listComments['firstName']." ".$listComments['lastName']."</p></div>";
+	       	}
 	    }
 	    echo "</div>";
+	if($_SESSION['username'] != ""){
 	?>
 	<form name="formComment" method="post" action="">
 		<textarea name="textComment" placeholder="Voeg hier uw reactie."></textarea>
 		<input type="submit" name="submitComment" value="plaats reactie"></input>
 	</form>
 	<?php
+	}
+	else
+	{
+		?>
+		<form>
+		<textarea placeholder="Meld je aan om een reactie te plaatsen" disabled></textarea>
+		</form>
+		<?php
+	}
 		if(isset($error)){ echo "<div id='error'>".$error."<div>"; }
 	?>
 	</article>

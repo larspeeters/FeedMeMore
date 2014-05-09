@@ -1,10 +1,10 @@
 <?php
 	class Database
 	{
-		private $m_sHost =  "mysql1.000webhost.com";
-		private $m_sUser = "a8154344_php";
-		private $m_sPassword = "Imd123)";
-		private $m_sDatabase = "a8154344_imd";
+		private $m_sHost =  "localhost";
+		private $m_sUser = "root";
+		private $m_sPassword = "";
+		private $m_sDatabase = "imd";
 		
 		public $conn;
 

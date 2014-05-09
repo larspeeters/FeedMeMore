@@ -118,7 +118,7 @@
 		 
 		Bedankt voor het registreren!
 		Om gebruik te kunnen maken van uw account, dient uw deze te activeren via onderstaande link:
-		http://www.yourwebsite.com/activate.php?email='.$email.'&hash='.$hash.'
+		http://feedmemore.net63.net/activate.php?email='.$email.'&hash='.$hash.'
 		
 		Uw inloggegevens
 		------------------------
@@ -128,7 +128,7 @@
 
 		'; // Our message above including the link
 							 
-		$headers = 'From: Feed Me More' . "\r\n"; // Set from headers
+		$headers = 'From: FeedMeMore' . "\r\n"; // Set from headers
 		mail($to, $subject, $message, $headers); // Send our email	
 	}
 	private function uploadImage(){

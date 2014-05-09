@@ -52,10 +52,10 @@ include_once "includes/nav.include.php";
 	      }
 	    }
 	    echo "</div>";
-	if($_SESSION['username'] == ""){
+	if($_SESSION['username'] != ""){
 	?>
 	<form name="formComment" method="post" action="">
-		<textarea name="textComment" placeholder="Voeg hier uw reactie."></textarea>
+		<textarea name="textComment" placeholder="Voeg hier uw reactie." disabled></textarea>
 		<input type="submit" name="submitComment" value="plaats reactie"></input>
 	</form>
 	<?php

@@ -5,11 +5,13 @@
 	{
 		try
 		{
-
+			$comm = new Comment();
+			$comm->Comment = $_POST['textComment'];			
+			$comm->AddComment();
 		}
-		catch
+		catch(Exception $e)
 		{
-
+			$error = $e->getMessage();
 		}
 	}
 ?><!DOCTYPE HTML>
@@ -29,16 +31,35 @@ include_once "includes/nav.include.php";
    
 	<article>
 	<?php
+		session_start();
+				
 		$p = new Post();
 		$p->Id = $_GET['id'];
 		$s = $p->ShowSpecific();
     	echo "<div id='detailPost'><h2>".$s['subject']."</h2><h3>".$s['mention']."</h3><p>".$s['text']."</p></div>";
     	echo "<hr>";
+    	$_SESSION['subject'] = $s['subject'];
+    	$_SESSION['mention'] = $s['mention'];
+
+		$getComm = new Comment();
+
+		$comments = $getComm->ShowComments();
+    
+	    echo "<div id='commentList'>";
+	    if($comments){
+	      foreach($comments as $listComments){
+	        echo "<div class='comments'><p>".$listComments['comment']."</p><p>".$listComments['firstname'].$listComments['lastname']."</p></div>";
+	      }
+	    }
+	    echo "</div>";
 	?>
 	<form name="formComment" method="post" action="">
 		<textarea name="textComment" placeholder="Voeg hier uw reactie."></textarea>
-		<input type="button" name="submitComment" value="plaats reactie"></input>
+		<input type="submit" name="submitComment" value="plaats reactie"></input>
 	</form>
+	<?php
+		if(isset($error)){ echo "<div id='error'>".$error."<div>"; }
+	?>
 	</article>
 </body>
 </html>

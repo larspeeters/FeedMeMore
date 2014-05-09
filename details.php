@@ -34,9 +34,10 @@ include_once "includes/nav.include.php";
 		session_start();
 				
 		$p = new Post();
-		$p->Id = $_GET['id'];
+		$p->pId= $_GET['id'];
 		$s = $p->show();
-    	echo "<div id='detailPost'><h2>".$s['subject']."</h2><h3>".$s['mention']."</h3><p>".$s['text']."</p></div>";
+		
+    	echo "<div id='detailPost'><h2>".$s[0]['subject']."</h2><h3>".$s[0]['mention']."</h3><p>".$s[0]['text']."</p></div>";
     	echo "<hr>";
     	$_SESSION['subject'] = $s['subject'];
     	$_SESSION['mention'] = $s['mention'];

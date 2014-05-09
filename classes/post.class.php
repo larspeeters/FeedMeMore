@@ -5,7 +5,8 @@ include_once("database.class.php");
 		private $m_sSubject;
 		private $m_sMention;
 		private $m_sText;
-		private $m_iID;
+		private $m_iUID;
+		private $m_iPID;
 		
 		// gewijzigd
 		public function __set($p_sProperty, $p_vValue)
@@ -32,8 +33,11 @@ include_once("database.class.php");
 				}
 					$this->m_sText = $p_vValue;
 					break;
-				case 'Id':
-					$this->m_iID = $p_vValue;
+				case 'pId':
+					$this->m_iPID = $p_vValue;
+					break;
+				case 'uId':
+					$this->m_iUID = $p_vValue;
 					break;
 			}
 		}
@@ -52,8 +56,11 @@ include_once("database.class.php");
 				case 'Text':
 					return $this->m_sText;
 					break;
-				case 'Id':
-					return $this->m_iID;
+				case 'pId':
+					return $this->m_iPID;
+					break;
+				case 'uId':
+					return $this->m_iUID;
 					break;
 			}
 		}
@@ -74,15 +81,17 @@ include_once("database.class.php");
 			{
 				$db = new Database();
 
-				$sql = "select * from tblPost p join tblUsers u on p.user_id = u.id order by p.id desc";
-				if(isset($_GET['id']))
-					$sql = $sql. " WHERE p.id ='".$_GET['id']."'";
-				if(!empty($this->m_iID))
+				$sql = "select * from tblPost p join tblUsers u on p.user_id = u.id";
+				if(!empty($this->m_iPID))
+					$sql = $sql. " WHERE p.id ='".$this->m_iPID."'";
+				if(!empty($this->m_iUID))
 					$sql = $sql . " WHERE p.user_id ='".$this->m_iID."'";
+				
+				$sql = $sql. " order by p.id desc";
 				$array = array();
 				if($result = $db->conn->query($sql)){
 					
-			 while($row = mysqli_fetch_array($result)){
+			 	while($row = mysqli_fetch_array($result)){
 					array_push($array, $row);
 					}
 			}

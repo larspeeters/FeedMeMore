@@ -10,8 +10,12 @@
 </head>
 
 <body>
+
 <?php
 include_once "includes/nav.include.php";
+?>
+<div id="container">
+<?php
 if(isset($_SESSION)):
 	if($_SESSION["admin"])
 		echo "<span>[Administrator]</span>" ?>
@@ -35,6 +39,7 @@ if(isset($_SESSION)):
         </li>
     </ul>
 <?php else: header("Location: error.php"); endif;?>
+</div>
 </body>
 <script>
 $('#password').click(function () {

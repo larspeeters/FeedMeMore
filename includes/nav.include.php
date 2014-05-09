@@ -29,7 +29,7 @@
 		        <input type="submit" name="loginSend" value="login"></input>
 	        </form>
 
-	        <a href="register.php" id="btnRegister" >Registreren</a>
+	        <a href="register.php" id="Register" >Registreren</a>
 		</div>
 <?php else: ?>
 	<div id="logout">

@@ -36,7 +36,10 @@
         <div id="message" > 
         	<p>Bedankt voor uw registratie! U kan uw account activeren door de link aan te klikken die naar het opgegeven emailadres (<?php echo $_GET['activate']; ?>) werd gestuurd.</p>
         </div>
-        <?php endif; ?>
+        <?php else: ?>
+		  <div id="message" > 
+        	<p>Uw account blijkt nog niet geactiveerd te zijn. Gelieve dit te doen via de link die naar uw emailadres werd verstuurd.</p>
+		<?php endif; ?>
         </body>
         </html>
 

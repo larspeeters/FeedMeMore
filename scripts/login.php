@@ -5,17 +5,20 @@
 			$usr = new User();
 			$usr->Password = $_POST['password'];
 			$usr->Email = $_POST['username']."@student.thomasmore.be";
-			if(!$usr->getUser()){
-				echo "Login failed";
-			}else{
-				$u = $usr->getUser();
-				session_start();
-				$_SESSION['id'] = $u['id'];
-				$_SESSION['username'] = $u['first_name']." ".$u['last_name'];
-				$_SESSION['email'] = $u['email'];
-				$_SESSION['avatar'] = $u['avatar'];
-				$_SESSION['admin'] = $u['isAdmin'];
-				header( 'Location: ../index.php' ) ;
+			$u = $usr->getUser();		
+									
+			if(!empty($u)){
+				if($u['activated']){
+					session_start();
+					$_SESSION['id'] = $u['Id'];
+					$_SESSION['username'] = $u['first_name']." ".$u['last_name'];
+					$_SESSION['email'] = $u['email'];
+					$_SESSION['avatar'] = $u['avatar'];
+					$_SESSION['admin'] = $u['isAdmin'];
+					header( 'Location: ../index.php' ) ;
+				}else{
+					header("Location: ../activate.php");
+				}
 			}			
 		}
 		if(isset($_POST['email'])){

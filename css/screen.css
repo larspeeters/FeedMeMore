@@ -155,6 +155,8 @@ border-radius: 5px;
 	
 }
 
+
+
 #containerRegister input[type="text"], input[type="password"]{
 	border-style: solid;
 	border-width: 1px;
@@ -238,5 +240,9 @@ textarea{
 	float: left;
 	width: 40%;
 	line-height:25px;
+}
+
+#formreset, #btnRegister{
+width:150px;;	
 }
 /************************ CONTENT ************************/

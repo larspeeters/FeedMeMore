@@ -60,7 +60,7 @@ nav a:hover{
 	
 }
 
-#login input[type="text"], #login input[type="password"], #login input[type="button"] {
+#login input[type="text"], #login input[type="password"], #login input[type="button"], #login input[type="submit"] {
 	width: 100px;
 	height: 25px;
 	font-size: 12px;
@@ -88,6 +88,13 @@ border-radius: 5px;
 }
 
 input[type="button"]
+{
+border-radius: 5px;
+background-color: #00A0AE;
+color:white;
+}
+
+input[type="submit"]
 {
 border-radius: 5px;
 background-color: #00A0AE;
@@ -143,19 +150,25 @@ border-radius: 5px;
 	
 }
 
-#containerRegister input[type="submit"], input[type="button"]{
+#containerRegister input[type="submit"], input[type="button"] {
 	border-radius: 5px;
 	background-color: #00A0AE;
 	color:white;
 	border-style: solid;
 	border-width: 1px;
+	border-color: white;
 	width: 100px;
 	height: 25px;
 	font-size: 14px;
 	
 }
 
-
+#containerRegister input[type="file"]{
+	background-color: #00A0AE;
+	padding: 5px;
+	color:white;
+	
+}
 
 #containerRegister input[type="text"], input[type="password"]{
 	border-style: solid;
@@ -243,6 +256,14 @@ textarea{
 }
 
 #formreset, #btnRegister{
-width:150px;
+width:150px;;	
+}
+
+#comments{
+	border: 1px solid black;
+	padding: 10px;
+}
+.postedBy{
+	font-size: 11px;
 }
 /************************ CONTENT ************************/

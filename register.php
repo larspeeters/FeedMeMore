@@ -27,7 +27,8 @@ include("includes/nav.include.php");
 				else{
 					$usr->Avatar = $_FILES['avatar']['name'];}
 			}
-			$usr->Save();
+			if($usr->Save())
+				header("Location: activate.php?email=".$usr->Email);
 			}catch(Exception $e){
 				$error = $e->getMessage();
 			}

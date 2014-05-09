@@ -2,11 +2,12 @@ body{
 	font-family: Arial, sans-serif;
 	background-image:url(../images/body.png);
 	font-size: 15px;
+	line-height:23px;
 }
 
 /************************ NAVIGATION ************************/
 nav{
-	height: 90px;
+	height: 94px;
 	background-color: #EC4B2E;
 	margin-bottom: 50px;
 	font-size: 15px;

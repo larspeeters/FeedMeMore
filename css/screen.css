@@ -262,6 +262,7 @@ width:150px;;
 .comments{
 	border: 1px solid black;
 	padding: 10px;
+	margin: 10px 0;
 }
 .postedBy{
 	font-size: 11px;

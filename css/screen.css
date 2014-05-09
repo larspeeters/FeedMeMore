@@ -256,7 +256,13 @@ textarea{
 }
 
 #formreset, #btnRegister{
-width:150px;;	
+width:150px;	
+}
+
+a#btnRegister{
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
 }
 
 .comments{

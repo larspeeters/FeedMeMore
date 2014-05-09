@@ -66,7 +66,7 @@ include_once("database.class.php");
 																	  '".$db->conn->real_escape_string($this->m_sMention)."', 
 																	  '".$db->conn->real_escape_string($this->m_sText)."',
 																	  '".$db->conn->real_escape_string($this->m_iID)."');";
-			echo $sql;
+
 			$db->conn->query($sql);
 		}
 

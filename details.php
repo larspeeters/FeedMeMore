@@ -48,7 +48,7 @@ include_once "includes/nav.include.php";
 	    echo "<div id='commentList'>";
 	    if($comments){
 	      foreach($comments as $listComments){
-	        echo "<div class='comments'><p>".$listComments['comment']."</p><p>".$listComments['firstname'].$listComments['lastname']."</p></div>";
+	        echo "<div class='comments'><p>".$listComments['comment']."</p><p class='postedBy'>gepost door ".$listComments['firstName']." ".$listComments['lastName']."</p></div>";
 	      }
 	    }
 	    echo "</div>";

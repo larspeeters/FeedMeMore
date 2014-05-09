@@ -95,7 +95,7 @@ include_once "includes/nav.include.php";
 	<article>
 		<?php 
     $p = new Post();
-    $n = $p->Show();
+    $n = $p->show();
     if($n){
       foreach($n as $list){
         echo "<div id='list'><a href='details.php?id=".$list['id'];

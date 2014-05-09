@@ -66,6 +66,7 @@ include_once("database.class.php");
 																	  '".$db->conn->real_escape_string($this->m_sMention)."', 
 																	  '".$db->conn->real_escape_string($this->m_sText)."',
 																	  '".$db->conn->real_escape_string($this->m_iID)."');";
+			echo $sql;
 			$db->conn->query($sql);
 		}
 
@@ -73,7 +74,9 @@ include_once("database.class.php");
 			{
 				$db = new Database();
 
-				$sql = "select * from tblPost p join tblusers u on p.user_id = u.id order by u.id desc";
+				$sql = "select * from tblPost p join tblUsers u on p.user_id = u.id order by p.id desc";
+				if(isset($_GET['id']))
+					$sql = $sql. " WHERE p.id ='".$_GET['id']."'";
 				if(!empty($this->m_iID))
 					$sql = $sql . " WHERE p.user_id ='".$this->m_iID."'";
 				$array = array();

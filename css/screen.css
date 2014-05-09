@@ -44,6 +44,9 @@ nav #login{
 	top: 20px;
 }
 
+
+
+
 nav a{
 	text-decoration: none;
 	color: white;
@@ -125,6 +128,28 @@ border-radius: 5px;
 	padding-bottom: 0px;
 	
 }
+
+nav #logout{
+	/* float: right; */
+	/* overflow: auto; */
+	/* margin-top: 5px; */
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	
+}
+
+nav #logout a{
+	text-decoration: none;
+	color: white;
+	padding:0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-bottom: 20px;
+	margin-right:10px;
+	position: absolute;
+	margin-left:10px;
+}
 /************************ NAVIGATION ************************/
 
 /************************ CONTENT ************************/
@@ -175,6 +200,12 @@ border-radius: 5px;
 	border-width: 1px;
 	color:#A8A8A8;
 	margin-top:4px;
+	
+}
+
+#containerRegister legend{
+	font-size: 20px;
+	font-weight: bold;
 	
 }
 
@@ -256,19 +287,12 @@ textarea{
 }
 
 #formreset, #btnRegister{
-width:150px;	
+width:150px;;	
 }
 
-a#btnRegister{
-	margin: 0;
-	padding: 0;
-	background-color: transparent;
-}
-
-.comments{
+#comments{
 	border: 1px solid black;
 	padding: 10px;
-	margin: 10px 0;
 }
 .postedBy{
 	font-size: 11px;

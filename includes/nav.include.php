@@ -5,7 +5,6 @@
             </div>
 		<div id="main">
 			<ul>
-				<li><a href="index.php">home</a></li>
 				<li><a href="posts.php">posts</a></li>
                 <?php if(isset($_SESSION['username'])): ?>
                 <li><a href="post.php">post zelf iets</a></li>

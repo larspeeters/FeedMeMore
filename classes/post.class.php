@@ -85,7 +85,7 @@ include_once("database.class.php");
 				if(!empty($this->m_iPID))
 					$sql = $sql. " WHERE p.id ='".$this->m_iPID."'";
 				if(!empty($this->m_iUID))
-					$sql = $sql . " WHERE p.user_id ='".$this->m_iID."'";
+					$sql = $sql . " WHERE p.user_id ='".$this->m_iUID."'";
 				
 				$sql = $sql. " order by p.id desc";
 				$array = array();

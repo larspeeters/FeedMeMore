@@ -350,4 +350,14 @@ textarea{
 .postedBy{
 	font-size: 11px;
 }
+
+#password{
+	cursor:pointer;
+}
+
+#frmPassword {
+	padding: 5%;
+    display: none;
+	width: 65%;
+}
 /************************ CONTENT ************************/

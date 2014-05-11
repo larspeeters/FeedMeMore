@@ -1,20 +1,4 @@
-<?php
-	include('classes/post.class.php');
-	include('classes/comment.class.php');
-	if(isset($_POST['submitComment']))
-	{
-		try
-		{
-			$comm = new Comment();
-			$comm->Comment = $_POST['textComment'];			
-			$comm->AddComment();
-		}
-		catch(Exception $e)
-		{
-			$error = $e->getMessage();
-		}
-	}
-?><!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="nl">
 <head>
 	<meta charset="utf-8">
@@ -26,25 +10,40 @@
 
 <body>
 <?php
-include_once "includes/nav.include.php";
+	include_once "includes/nav.include.php";
+	include('classes/post.class.php');
+	include('classes/comment.class.php');
+	if(isset($_POST['submitComment']))
+	{
+		try
+		{
+			$comm = new Comment();
+			$comm->Comment = $_POST['textComment'];	
+			$comm->User = $_SESSION['username'];	
+			$comm->Mention = $_POST['mention'];
+			$comm->Subject = $_POST['subject'];
+			$comm->AddComment();
+		}
+		catch(Exception $e)
+		{
+			$error = $e->getMessage();
+		}
+	}
+
 ?>
    
 	<article>
-	<?php
-		session_start();
-				
+	<?php			
 		$p = new Post();
 		$p->pId= $_GET['id'];
 		$s = $p->show();
 		
     	echo "<div id='detailPost'><h2>".$s[0]['subject']."</h2><h3>".$s[0]['mention']."</h3><p>".$s[0]['text']."</p></div>";
     	echo "<hr>";
-    	
-    	$_SESSION['subject'] = $s[0]['subject'];
-    	$_SESSION['mention'] = $s[0]['mention'];
-
+		
 		$getComm = new Comment();
-
+		$getComm->Subject = $s[0]['subject'];
+		$getComm->Mention = $s[0]['mention'];
 		$comments = $getComm->ShowComments();
     	
 	    echo "<div id='commentList'>";
@@ -57,6 +56,8 @@ include_once "includes/nav.include.php";
 	if($_SESSION['username'] != ""){
 	?>
 	<form name="formComment" method="post" action="">
+    	<input type="text" hidden="hidden" value="<?php echo $s[0]['subject']; ?>" name="subject" />
+        <input type="text" hidden="hidden" value="<?php echo $s[0]['mention']; ?>" name="mention" />
 		<textarea name="textComment" placeholder="Voeg hier uw reactie."></textarea>
 		<input type="submit" name="submitComment" id="submitComment" value="plaats reactie"></input>
 	</form>
@@ -72,9 +73,6 @@ include_once "includes/nav.include.php";
 	}
 		if(isset($error)){ echo "<div id='error'>".$error."<div>"; }
 	?>
-	<?php
-        include_once "includes/footer.include.php";
-    ?>
 	</article>
 </body>
 </html>

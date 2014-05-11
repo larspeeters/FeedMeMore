@@ -361,3 +361,19 @@ textarea{
 	width: 65%;
 }
 /************************ CONTENT ************************/
+
+/************************ FOOTER ************************/
+footer{
+	height: 55px;
+	background-color: #EC4B2E;
+	margin-top: 50px;
+	font-size: 15px;
+	text-transform: capitalize;
+	color: white;
+}
+#footerContent{
+	width: 215px;
+	margin: 0 auto;
+	padding-top: 15px;
+}
+/************************ FOOTER ************************/

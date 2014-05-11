@@ -50,6 +50,9 @@
 		  <div id="message" > 
         	<p>Uw account blijkt nog niet geactiveerd te zijn. Gelieve dit te doen via de link die naar uw emailadres werd verstuurd.</p>
 		<?php endif; ?>
+		<?php
+     	   include_once "includes/footer.include.php";
+    	?>
         </body>
         </html>
 

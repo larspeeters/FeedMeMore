@@ -48,5 +48,8 @@ include_once "includes/nav.include.php";
   
     <p></p>
 	</article>
+    <?php
+        include_once "includes/footer.include.php";
+    ?>
 </body>
 </html>

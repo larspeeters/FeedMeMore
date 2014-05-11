@@ -51,6 +51,9 @@ if(isset($_SESSION)):
 <?php  } ?> </ul><?php endif;
 	else: header("Location: error.php"); endif;?>
 </div>
+<?php
+        include_once "includes/footer.include.php";
+?>
 </body>
 <script>
 $(document).ready(function () {

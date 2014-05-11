@@ -61,6 +61,9 @@ include("includes/nav.include.php");
     </form>
      
 </div>
+<?php
+        include_once "includes/footer.include.php";
+?>
 </body>
 <script>
 $(document).ready(function(e) {

@@ -72,6 +72,9 @@ include_once "includes/nav.include.php";
 	}
 		if(isset($error)){ echo "<div id='error'>".$error."<div>"; }
 	?>
+	<?php
+        include_once "includes/footer.include.php";
+    ?>
 	</article>
 </body>
 </html>

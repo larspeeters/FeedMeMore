@@ -27,9 +27,13 @@
 						$this->m_sLastname = $p_vValue; break;
 				case 'Password': 
 					if(empty($p_vValue))
-						throw new Exception("Gelieve een wachtwoord in te vullen.");
-					else
-						$this->m_sPassword = $p_vValue; break;
+							throw new Exception("Gelieve een wachtwoord in te vullen.");
+					else{
+						if(strlen($p_vValue) < 8)
+							throw new Exception("Wachtwoord moet minstens 8 tekens lang zijn.");
+						else
+							$this->m_sPassword = $p_vValue; break;
+					}
 				case 'Email': 
 					if(empty($p_vValue))
 						throw new Exception("Gelieve een email adres in te vullen.");
@@ -101,14 +105,13 @@
 		}
 		public function changePassword()
 		{
-			try{
 			$db = new Database();
 			$sql = "UPDATE tblUsers SET password='".$db->conn->real_escape_string($this->hashed($this->m_sPassword))."' WHERE email='".$db->conn->real_escape_string($this->m_sEmail)."'";
-			$db->conn->query($sql);
+			if($db->conn->query($sql))
+				return true;
+			else
+				return false;
 			mysqli_close($db->conn); //close connection with Dbase
-			}catch(Exception $e){
-				echo $e->getMessage();
-			}
 			mysqli_close($db->conn); //close connection with Dbase
 		}
 	private function activateAccount($email, $hash){

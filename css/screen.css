@@ -360,6 +360,27 @@ textarea{
     display: none;
 	width: 65%;
 }
+
+.overlay {
+	z-index: 5;
+	background: rgba(0, 0, 0, .50);
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+}
+#profilePic{
+		cursor: pointer;
+}
+.popup {
+	padding: 10px 10px 35px;
+	background: #fff;
+	z-index: 999;
+	display: none;
+	position: absolute;
+	border-radius: 10px;
+	border: #00A0AE 1px solid;
+}
 /************************ CONTENT ************************/
 
 /************************ FOOTER ************************/

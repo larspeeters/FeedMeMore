@@ -31,7 +31,7 @@ include_once "includes/nav.include.php";
     <br>
     <h3>R3. Verklaar jezelf duidelijk</h3>
     <p>Leg ons zo duidelijk mogelijk uit wat jouw probleem is en wat het allemaal inhoud. Als wij er iets aan willen doen, dan moeten we duidelijk
-    geïnformeerd zijn. Verklaar dus duidelijk wat je bedoeld.</p>
+    geïnformeerd zijn. Verklaar dus wat je bedoeld.</p>
 	</article>
     <?php
         include_once "includes/footer.include.php";

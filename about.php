@@ -14,7 +14,7 @@ include_once "includes/nav.include.php";
 ?>
    
 	<article>
-    <h1>Wie zijn wij</h1>
+    <h1>Wie zijn we</h1>
     <h2>Doel</h2>
     <p>Het doel van de studentenraad kan het beste uitgelegd worden aan de hand van de missie en de visie van SRTMM.
     </p>

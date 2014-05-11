@@ -41,11 +41,11 @@ include_once "includes/nav.include.php";
 	<article>
     <h1>Post</h1>
     <div id="leftCol">
-        <h2>Belangrijk</h2>
+        <h2>Voor je een post plaatst</h2>
         <p>Feed Me More werd georganiseerd om naar de studenten hun klachten en verbeteringen te luisteren. We willen dit op een zo
         	respectvolle manier doen. Indien wij merken dat je blijvend misbruik maakt van onze website, hebben wij het recht om je account te sluiten, en indien
-        	nodig ook meteen te verwijderen. Gelieve daarom eerst de <a href="rules.php">regels</a> te lezen alvorens een post te plaatsen, om problemen
-        	en misverstanden te vermijden. Met grote dank van het Feed Me More team!
+        	nodig ook meteen te verwijderen. <br><br> Gelieve daarom eerst de <a href="rules.php">regels</a> te lezen alvorens een post te plaatsen, om problemen
+        	en misverstanden te vermijden. <br><br>Met grote dank van het Feed Me More team!
         </p>
     </div>
 		<div id="post">

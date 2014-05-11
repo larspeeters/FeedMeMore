@@ -29,7 +29,7 @@ if(isset($_SESSION)):
     <div class="ar login_popup">
     <div class="popup">
         <span>Mijn avatar wijzigen</span><br/>
-        <img src="images/avatar.png"  alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar" /> <br/>
+        <img src="images/avatars/icon.jpg"  alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar" /> <br/>
         <input type="file" name="avatar" id="file" value="Avatar wijzigen" /><input type="button" value="wijzigen" id="btnAvatar" />
     </div>
 </div>
@@ -63,6 +63,9 @@ if(isset($_SESSION)):
 <?php  } ?> </ul><?php endif;
 	else: header("Location: error.php"); endif;?>
 </div>
+<?php
+        include_once "includes/footer.include.php";
+ ?>
 </body>
 <script>
 $(document).ready(function () {

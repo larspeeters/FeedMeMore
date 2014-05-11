@@ -49,6 +49,7 @@ include_once "includes/nav.include.php";
         </p>
     </div>
 		<div id="post">
+			<h2>Verzend je post</h2>
             <form action="" method="post">
             	<label>Onderwerp*</label><br><br>
             	<input type="text" name="subject"></input><br><br>

@@ -14,6 +14,7 @@
 <?php
 include_once "includes/nav.include.php";
 include "classes/post.class.php";
+include "classes/comment.class.php";
 ?>
 <div id="container">
 <?php
@@ -21,10 +22,17 @@ if(isset($_SESSION)):
 	if($_SESSION["admin"])
 		echo "<span>[Administrator]</span>" ?>
 	<h2>Profiel van <?php echo $_SESSION['username']; 	if(empty($_SESSION['avatar'])){ ?>
-     <span><img src="<?php echo "../images/avatars/icon.jpg" ?>" width="50px" height="50px" title="Profielfoto" />
+     <span><img src="<?php echo "../images/avatars/icon.jpg" ?>" id="profilePic" width="50px" height="50px" title="Profielfoto" />
 	<?php }else if(substr($_SESSION['avatar'],0,7) != "http://"){?></h2>
-    <img src="<?php echo "../images/avatars/".$_SESSION['avatar']; ?>" width="100px" height="100px" title="Profielfoto" /><?php } else{ ?> 
+    <img src="<?php echo "../images/avatars/".$_SESSION['avatar']; ?>" id="profilePic" width="100px" height="100px" title="Profielfoto" /><?php } else{ ?> 
     <img src="<?php echo $_SESSION['avatar']; ?>" width="100px" height="100px" title="Profielfoto" /><?php } ?>
+    <div class="ar login_popup">
+    <div class="popup">
+        <span>Mijn avatar wijzigen</span><br/>
+        <img src="images/avatar.png"  alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar" /> <br/>
+        <input type="file" name="avatar" id="file" value="Avatar wijzigen" /><input type="button" value="wijzigen" id="btnAvatar" />
+    </div>
+</div>
     <ul>
     	<li>Gebruikersnaam: <?php echo $_SESSION['username'];?></li>
         <li >Email: <span id="mail"><?php echo $_SESSION['email'];?></span></li>
@@ -46,14 +54,15 @@ if(isset($_SESSION)):
 		if(!empty($list)):?>
         <ul id="userPosts">
     	<span>Uw aangemaakte posts:</span>
-        <?php foreach($list as $row){?>
-        	<li><a href="details.php?id=<?php echo $row['id'] ?>"><?php echo $row['subject']." (".$row['mention'].")"; ?></a></li>
+        <?php foreach($list as $row){
+			$c = new Comment();
+			$c->Subject = $row['subject'];
+			$c->Mention = $row['mention'];
+			$rows = $c->ShowComments();?>
+        	<li><a href="details.php?id=<?php echo $row['id'] ?>"><?php echo $row['subject']." (".$row['mention'].")"; ?> - <?php echo count($rows);?> <img src="images/comment.png" width="15px" height="15px" title="Commentaar"/></a></li>
 <?php  } ?> </ul><?php endif;
 	else: header("Location: error.php"); endif;?>
 </div>
-<?php
-        include_once "includes/footer.include.php";
-?>
 </body>
 <script>
 $(document).ready(function () {
@@ -80,6 +89,36 @@ $(document).ready(function () {
 		}
 		else{$("#passwordFeedback").html("");
 		$("#btnChange").removeAttr("disabled"); }
+    });
+	$("#profilePic").click(function(e) {
+		if($(".popup").css('display') == 'block'){
+			 $(".popup, .overlay").hide(); 
+		}else{
+        $("body").append(''); $(".popup").show(); 
+		}
+    }); 
+	$("#file").change(function(){
+		if (this.files && this.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $("#avatar").attr('src', e.target.result);
+        }
+        reader.readAsDataURL(this.files[0]);
+    }
+	});
+	$('#btnAvatar').click(
+    function(){
+		var url = $('#file').val().split("\\");
+        $.ajax({
+          url: "scripts/passwordChange.php",
+          type: "POST",
+		  data: {"avatar": url[2]},
+          success: function(data){
+				alert(data);
+          }
+       });
+
     });
 });
 </script>

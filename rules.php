@@ -32,28 +32,6 @@ include_once "includes/nav.include.php";
     <h3>R3. Verklaar jezelf duidelijk</h3>
     <p>Leg ons zo duidelijk mogelijk uit wat jouw probleem is en wat het allemaal inhoud. Als wij er iets aan willen doen, dan moeten we duidelijk
     geïnformeerd zijn. Verklaar dus duidelijk wat je bedoeld.</p>
-    <br>
-    <h3>R4.</h3>
-    <p></p>
-    <br>
-    <h3>R5.</h3>
-    <p></p>
-    <br>
-    <h3>R6.</h3>
-    <p></p>
-    <br>
-    <h3>R7.</h3>
-    <p></p>
-    <br>
-    <h3>R8.</h3>
-    <p></p>
-    <br>
-    <h3>R9.</h3>
-    <p></p>
-    <br>
-    <h3>R10.</h3>
-    <p></p>
-
 	</article>
     <?php
         include_once "includes/footer.include.php";

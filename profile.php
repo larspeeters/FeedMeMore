@@ -20,13 +20,13 @@ include "classes/comment.class.php";
 <?php
 if(isset($_SESSION)):
 	if($_SESSION["admin"])
-		echo "<span>[Administrator]</span>" ?>
+		echo "<span>[Administrator]</span>"; ?>
 	<h2>Profiel van <?php echo $_SESSION['username']; 	if(empty($_SESSION['avatar'])){ ?>
-     <span><img src="<?php echo "../images/avatars/icon.jpg" ?>" id="profilePic" width="50px" height="50px" title="Profielfoto" />
-	<?php }else if(substr($_SESSION['avatar'],0,7) != "http://"){?></h2>
+     <img src="<?php echo "../images/avatars/icon.jpg" ?>" id="profilePic" width="50px" height="50px" title="Profielfoto" />
+	<?php }else if(substr($_SESSION['avatar'],0,7) != "http://"){?>
     <img src="<?php echo "../images/avatars/".$_SESSION['avatar']; ?>" id="profilePic" width="100px" height="100px" title="Profielfoto" /><?php } else{ ?> 
     <img src="<?php echo $_SESSION['avatar']; ?>" width="100px" height="100px" title="Profielfoto" /><?php } ?>
-    <div class="ar login_popup">
+    </h2><div class="ar login_popup">
     <div class="popup">
         <span>Mijn avatar wijzigen</span><br/>
         <img src="images/avatars/icon.jpg"  alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar" /> <br/>

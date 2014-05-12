@@ -142,8 +142,9 @@ nav #logout{
 	position: absolute;
 	right: 20px;
 	top: 20px;
-	height: 50px;
-	width: 200px;	
+	height: 50px;	
+	max-width: 200px;
+	width: 100%;
 }
 
 #nameLogout {

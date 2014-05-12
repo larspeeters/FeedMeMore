@@ -17,6 +17,7 @@ include "classes/post.class.php";
 include "classes/comment.class.php";
 ?>
 <div id="container">
+  <div id="userProfile">
 <?php
 if(isset($_SESSION)):
 	if($_SESSION["admin"])
@@ -34,8 +35,8 @@ if(isset($_SESSION)):
     </div>
 </div>
     <ul>
-    	<li>Gebruikersnaam: <?php echo $_SESSION['username'];?></li>
-        <li >Email: <span id="mail"><?php echo $_SESSION['email'];?></span></li>
+    	<li><h3>Gebruikersnaam: </h3><?php echo $_SESSION['username'];?></li>
+        <li><h3>Email: </h3><span id="mail"><?php echo $_SESSION['email'];?></span></li>
 		<li><span id="password">Wachtwoord wijzigen</span>
         <div id="frmPassword" >
         	<form id="form">
@@ -62,10 +63,11 @@ if(isset($_SESSION)):
         	<li><a href="details.php?id=<?php echo $row['id'] ?>"><?php echo $row['subject']." (".$row['mention'].")"; ?> - <?php echo count($rows);?> <img src="images/comment.png" width="15px" height="15px" title="Commentaar"/></a></li>
 <?php  } ?> </ul><?php endif;
 	else: header("Location: error.php"); endif;?>
-</div>
+</div></div>
 <?php
         include_once "includes/footer.include.php";
  ?>
+
 </body>
 <script>
 $(document).ready(function () {

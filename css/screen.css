@@ -399,6 +399,9 @@ textarea{
 	border-radius: 10px;
 	border: #00A0AE 1px solid;
 }
+#userProfile h3{
+	display: inline;
+}
 /************************ CONTENT ************************/
 
 /************************ FOOTER ************************/

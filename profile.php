@@ -16,18 +16,18 @@ include_once "includes/nav.include.php";
 include "classes/post.class.php";
 include "classes/comment.class.php";
 ?>
-<div id="container">
+<div id="containerRegister">
   <div id="userProfile">
 <?php
 if(isset($_SESSION)):
 	if($_SESSION["admin"])
 		echo "<span>[Administrator]</span>"; ?>
-	<h2>Profiel van <?php echo $_SESSION['username']; 	if(empty($_SESSION['avatar'])){ ?>
+	<legend>Profiel van <?php echo $_SESSION['username']; 	if(empty($_SESSION['avatar'])){ ?>
      <img src="<?php echo "../images/avatars/icon.jpg" ?>" id="profilePic" width="50px" height="50px" title="Profielfoto" />
 	<?php }else if(substr($_SESSION['avatar'],0,7) != "http://"){?>
     <img src="<?php echo "../images/avatars/".$_SESSION['avatar']; ?>" id="profilePic" width="100px" height="100px" title="Profielfoto" /><?php } else{ ?> 
     <img src="<?php echo $_SESSION['avatar']; ?>" width="100px" height="100px" title="Profielfoto" /><?php } ?>
-    </h2><div class="ar login_popup">
+    </legend><div class="ar login_popup">
     <div class="popup">
         <span>Mijn avatar wijzigen</span><br/>
         <img src="images/avatars/icon.jpg"  alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar" /> <br/>
@@ -35,16 +35,19 @@ if(isset($_SESSION)):
     </div>
 </div>
     <ul>
-    	<li><h3>Gebruikersnaam: </h3><?php echo $_SESSION['username'];?></li>
-        <li><h3>Email: </h3><span id="mail"><?php echo $_SESSION['email'];?></span></li>
+    	<li>Gebruikersnaam: <?php echo $_SESSION['username'];?></li>
+        <li>Email: <span id="mail"><?php echo $_SESSION['email'];?></span></li>
 		<li><span id="password">Wachtwoord wijzigen</span>
         <div id="frmPassword" >
         	<form id="form">
-            <label for="nieuwWachtwoord">Nieuw wachtwoord: </label>
-            <input type="password" size="25" id="newPass" /><br />
-            <label for="herhaalWachtwoord">Herhaal wachtwoord: </label>
-            <input type="password" size="25" id="repPass" /><br />
+            <div id="frmpasswordleft">
+            <label for="nieuwWachtwoord">Nieuw wachtwoord: </label><br />
+            <label for="herhaalWachtwoord">Herhaal wachtwoord: </label><br />
             <input type="button" value="Wijzigen" id="btnChange" /> <span id="passwordFeedback"> </span>
+            </div>
+            <input type="password" size="25" id="newPass" />
+            <input type="password" size="25" id="repPass" />
+            
             </form>
             </div>
         </li>
@@ -54,7 +57,7 @@ if(isset($_SESSION)):
 		$list = $p->show(); 
 		if(!empty($list)):?>
         <br><ul id="userPosts">
-    	<span>Uw aangemaakte posts:</span>
+    	<span>Uw aangemaakte posts:</span><br /><br />
         <?php foreach($list as $row){
 			$c = new Comment();
 			$c->Subject = $row['subject'];

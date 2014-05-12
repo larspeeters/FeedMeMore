@@ -52,7 +52,7 @@ nav a{
 	text-decoration: none;
 	color: white;
 	padding:20px;
-	padding-top: 35px;
+	padding-top: 38px;
 	padding-bottom: 38px;
 	
 }
@@ -185,6 +185,7 @@ nav #logout a:hover{
 	background-color: #F4F4F4;
 	padding: 30px;
 	font-weight:normal;
+	min-height:550px;
 	
 }
 
@@ -201,12 +202,13 @@ nav #logout a:hover{
 	width:100%;
     max-width:960px;
 	margin: 0 auto;
-	
+	line-height:32px;
 	background-color: #F4F4F4;
 	padding: 30px;
 	padding-left: 170px;
 	color: #00A0AE;
 	font-size: 18px;
+	min-height:550px;
 	
 }
 
@@ -243,6 +245,18 @@ nav #logout a:hover{
 	font-size: 20px;
 	font-weight: bold;
 	
+}
+
+#containerRegister a{
+	padding-top : 30px;
+	border: 1px solid white;
+	background-color: #00A0AE;
+	color: white;
+	padding: 10px;
+	margin: 10px 0;
+	font-size: 14px;
+	text-decoration: none;
+	width: 500px;
 }
 
 .avatar{
@@ -285,11 +299,11 @@ h1, h2, h3{
 }
 
 h1{
-	font-size: 25px;
+	font-size: 22px;
 }
 
 h2{
-	font-size: 18px;
+	font-size: 17px;
 }
 
 h3{
@@ -319,6 +333,12 @@ textarea{
 	
 }
 
+#frmpasswordleft{
+	float: left;
+	width: 50%;
+	line-height:33px;
+}
+
 #post{
 	float: right;
 	width: 48%;
@@ -340,7 +360,7 @@ textarea{
 
 #leftProfile{
 	float: left;
-	width: 50%;
+	width: 40%;
 	line-height:30px;
 }
 

@@ -63,7 +63,7 @@ if(isset($_SESSION)):
 			$c->Subject = $row['subject'];
 			$c->Mention = $row['mention'];
 			$rows = $c->ShowComments();?>
-        	<li><a href="details.php?id=<?php echo $row['id'] ?>"><?php echo $row['subject']." (".$row['mention'].")"; ?> - <?php echo count($rows);?> <img src="images/comment.png" width="15px" height="15px" title="Commentaar"/></a></li>
+        	<li><a href="details.php?id=<?php echo $row['id'] ?>"><div id="userMadePosts"><?php echo $row['subject']." (".$row['mention'].")"; ?> - </div><?php echo "<div id='icon'>" .count($rows);?> <img src="images/comment.png" width="15px" height="15px" title="Commentaar"/></div></a></li>
 <?php  } ?> </ul><?php endif;
 	else: header("Location: error.php"); endif;?>
 </div></div>

@@ -258,6 +258,14 @@ nav #logout a:hover{
 	text-decoration: none;
 	width: 500px;
 	display: block;
+	height: 50px;
+}
+
+#userMadePosts {
+	float: left;
+}
+#icon {
+	float: right;
 }
 
 .avatar{

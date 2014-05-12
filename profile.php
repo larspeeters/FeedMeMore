@@ -27,13 +27,7 @@ if(isset($_SESSION)):
 	<?php }else if(substr($_SESSION['avatar'],0,7) != "http://"){?>
     <img src="<?php echo "../images/avatars/".$_SESSION['avatar']; ?>" id="profilePic" width="100px" height="100px" title="Profielfoto" /><?php } else{ ?> 
     <img src="<?php echo $_SESSION['avatar']; ?>" width="100px" height="100px" title="Profielfoto" /><?php } ?>
-    </legend><div class="ar login_popup">
-    <div class="popup">
-        <span>Mijn avatar wijzigen</span><br/>
-        <img src="images/avatars/icon.jpg"  alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar" /> <br/>
-        <input type="file" name="avatar" id="file" value="Avatar wijzigen" /><input type="button" value="wijzigen" id="btnAvatar" />
-    </div>
-</div>
+    </legend>
     <ul>
     	<li>Gebruikersnaam: <?php echo $_SESSION['username'];?></li>
         <li>Email: <span id="mail"><?php echo $_SESSION['email'];?></span></li>
@@ -98,13 +92,6 @@ $(document).ready(function () {
 		else{$("#passwordFeedback").html("");
 		$("#btnChange").removeAttr("disabled"); }
     });
-	$("#profilePic").click(function(e) {
-		if($(".popup").css('display') == 'block'){
-			 $(".popup, .overlay").hide(); 
-		}else{
-        $("body").append(''); $(".popup").show(); 
-		}
-    }); 
 	$("#file").change(function(){
 		if (this.files && this.files[0]) {
         var reader = new FileReader();
@@ -115,19 +102,6 @@ $(document).ready(function () {
         reader.readAsDataURL(this.files[0]);
     }
 	});
-	$('#btnAvatar').click(
-    function(){
-		var url = $('#file').val().split("\\");
-        $.ajax({
-          url: "scripts/passwordChange.php",
-          type: "POST",
-		  data: {"avatar": url[2]},
-          success: function(data){
-				alert(data);
-          }
-       });
-
-    });
 });
 </script>
 </html>

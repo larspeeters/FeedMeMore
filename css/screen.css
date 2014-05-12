@@ -409,9 +409,6 @@ footer{
 	font-size: 15px;
 	text-transform: capitalize;
 	color: white;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
 }
 #footerContent{
 	width: 215px;

@@ -52,7 +52,7 @@ if(isset($_SESSION)):
  		$p->uId = $_SESSION['id'];
 		$list = $p->show(); 
 		if(!empty($list)):?>
-        <ul id="userPosts">
+        <br><ul id="userPosts">
     	<span>Uw aangemaakte posts:</span>
         <?php foreach($list as $row){
 			$c = new Comment();

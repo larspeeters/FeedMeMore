@@ -257,6 +257,7 @@ nav #logout a:hover{
 	font-size: 14px;
 	text-decoration: none;
 	width: 500px;
+	display: block;
 }
 
 .avatar{

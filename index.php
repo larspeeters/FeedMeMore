@@ -105,7 +105,7 @@ include "classes/comment.class.php";
 		$rows = $c->ShowComments();
         echo "<div id='list'><a href='details.php?id=".$list['id'];
         echo "'><div class='topPost'><h2>".$list['subject']. " | </h2><h3>" .$list['mention']. "</h3></div></a> Door ".$list['first_name']." ".$list['last_name']."  - ".count($rows)." <img src='images/comment.png' width='15px' height='15px' title='Commentaar'/> <br/>".$list['text']."</p></div>";
-        echo "<div class='movie_choice'>
+        echo "<div class='post_choice'>
                   <div id='".$list['id']."' class='rate_widget'>
                       <div class='star_1 ratings_stars'></div>
                       <div class='star_2 ratings_stars'></div>

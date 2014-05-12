@@ -38,11 +38,11 @@
 <?php else: ?>
 	<div id="logout">
      <?php  if(empty($_SESSION['avatar'])){ ?>
-     <span><img src="<?php echo "../images/avatars/icon.jpg" ?>" width="50px" height="50px" title="Profielfoto" />
+     <img src="<?php echo "../images/avatars/icon.jpg" ?>" width="50px" height="50px" title="Profielfoto" />
 	<?php }else if(substr($_SESSION['avatar'],0,7) != "http://"){?>
-    		<span><img src="<?php echo "../images/avatars/".$_SESSION['avatar']; ?>" width="50px" height="50px" title="Profielfoto" />  <?php } else { ?> 
-            <span><img src="<?php echo $_SESSION['avatar']; ?>" width="50px" height="50px" title="Profielfoto" /> <?php } ?><a href="../profile.php" ><?php echo $_SESSION['username'];?></a></span>
-	        <a href="?logout=true" >[ Log out ] </a>
+    		<img src="<?php echo "../images/avatars/".$_SESSION['avatar']; ?>" width="50px" height="50px" title="Profielfoto" />  <?php } else { ?> 
+            <img src="<?php echo $_SESSION['avatar']; ?>" width="50px" height="50px" title="Profielfoto" /> <?php } ?><div id="nameLogout"><ul><li><a href="../profile.php" ><?php echo $_SESSION['username'];?></a></li>
+	        <li><a href="?logout=true" >[ Log out ] </a></li></ul></div>
 		</div>
 <?php endif; ?>
 	</nav>

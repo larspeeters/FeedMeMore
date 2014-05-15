@@ -54,7 +54,7 @@ include("includes/nav.include.php");
             <input type="text" size="8" maxlength="8" name="email" id="mail"/>@student.thomasmore.be<span id="emailCheck" style="color:red;"> </span><br /><br />
             <label for="avatar" >Avatar: </label><img src="images/avatar.png" alt="Your avatar" title="Kies een avatar" width="75" height="75" id="avatar" /> <br /><br />
             <input type="file" name="avatar" id="file" /><br /><br />
-            Of Gravatar (<a href="http://nl.gravatar.com/">?</a>):
+            <a href="http://nl.gravatar.com/">Of maak een Gravatar aan?</a>
             <input type="text" name="gravatar" id="gravatar" /><input type="button" id="image" value="Get gravatar" /><input type="text" hidden="hidden" name="linkgrav" id="link"/><br /><br />
             <input type="submit" value="Registreren" id="btnRegister" /> <input type="button" value="Velden leegmaken" id="formreset" />
         </fieldset>

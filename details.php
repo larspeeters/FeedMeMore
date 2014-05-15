@@ -38,7 +38,7 @@
 		$p->pId= $_GET['id'];
 		$s = $p->show();
 		
-    	echo "<div id='detailPost'><h2>".$s[0]['subject']."</h2><h3>".$s[0]['mention']."</h3><p>".$s[0]['text']."</p></div>";
+    	echo "<div id='detailPost'><h1>".$s[0]['subject']."</h1><h2>".$s[0]['mention']."</h2><p>".$s[0]['text']."</p></div>";
     	echo "<hr>";
 		
 		$getComm = new Comment();

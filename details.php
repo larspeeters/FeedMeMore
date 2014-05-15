@@ -49,7 +49,7 @@
 	    echo "<div id='commentList'>";
 	    if(isset($comments)){
 	      foreach($comments as $listComments){
-	       	echo "<div class='comments'><p>".$listComments['comment']."</p><p class='postedBy'>gepost door ".$listComments['firstName']." ".$listComments['lastName']."</p></div>";
+	       	echo "<div class='comments'><p>".htmlspecialchars($listComments['comment'])."</p><p class='postedBy'>gepost door ".$listComments['firstName']." ".$listComments['lastName']."</p></div>";
 	       	}
 	    }
 	    echo "</div>";

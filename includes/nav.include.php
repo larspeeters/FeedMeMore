@@ -1,17 +1,21 @@
 <nav>
-<?php 	session_start(); ?>
+<?php $page = $_SERVER["SCRIPT_NAME"];
+	$page = explode("/", $page);	
+	$page = array_reverse($page);		
+	$page = $page[0];
+session_start(); ?>
     <div id="logo">
                 <a href="index.php"><img src="images/logowit.png" width="150" height="70" alt="logo"></a>
             </div>
 		<div id="main">
 			<ul>
-				<li><a href="index.php">posts</a></li>
+				<li><a href="index.php" <?php echo ($page == 'index.php') ? 'class="active"' : '';?>>posts</a></li>
                 <?php if(isset($_SESSION['username'])): ?>
-                <li><a href="post.php">post zelf iets</a></li>
+                <li><a href="post.php" <?php echo ($page == 'post.php') ? 'class="active"' : '';?>>post zelf iets</a></li>
                 <?php endif; ?>
-				<li><a href="about.php">wie zijn we</a></li>
-				<li><a href="rules.php">regels</a></li>
-				<li><a href="contact.php">bereik ons</a></li>
+				<li><a href="about.php" <?php echo ($page == 'about.php') ? 'class="active"' : '';?>>wie zijn we</a></li>
+				<li><a href="rules.php" <?php echo ($page == 'rules.php') ? 'class="active"' : '';?>>regels</a></li>
+				<li><a href="contact.php" <?php echo ($page == 'contact.php') ? 'class="active"' : '';?>>bereik ons</a></li>
 			</ul>
 		</div>
 <?php
@@ -28,7 +32,7 @@
 		        <input type="submit" name="loginSend" value="login"></input>
 	        </form>
 	        <?php
-	        if(isset($_GET))
+	        if(isset($_GET['error']))
 	        {
 		        echo "<div class='errorMessage'>".$_GET['error']."</div>";
 	    	}

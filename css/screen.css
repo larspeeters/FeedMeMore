@@ -69,6 +69,13 @@ nav a:hover{
 	
 }
 
+.active{
+	text-decoration: none; 
+	
+	background-color: #D3361C;
+	
+}
+
 #login input[type="text"], #login input[type="password"], #login input[type="button"], #login input[type="submit"] {
 	width: 100px;
 	height: 25px;

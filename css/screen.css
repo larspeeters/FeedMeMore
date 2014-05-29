@@ -5,6 +5,11 @@ body{
 	line-height:23px;
 }
 
+
+#wrapper{
+   min-height:100%;
+   position:relative;
+}
 /************************ NAVIGATION ************************/
 nav{
 	height: 94px;
@@ -284,6 +289,7 @@ article{
 	margin: 0 auto;
 	background-color: #F4F4F4;
 	padding: 30px;
+	padding-bottom: 55px; 
 }
 
 article input[type="submit"]{
@@ -324,6 +330,7 @@ h3{
 
 #list h3{
 	float: left;
+	padding-top: 4px;
 	padding-left: 5px;
 }
 
@@ -354,6 +361,10 @@ textarea{
 #post .feedback{
 	font-size: 12px;
 	color: green;
+}
+
+#postList{
+
 }
 
 #list .topPost{
@@ -419,8 +430,10 @@ footer{
 	margin-top: 50px;
 	font-size: 15px;
 	text-transform: capitalize;
+	position: fixed;
 	color: white;
 	width: 100%;
+	bottom: 0;
 }
 #footerContent{
 	width: 215px;
